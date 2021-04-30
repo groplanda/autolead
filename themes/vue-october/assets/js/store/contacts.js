@@ -59,12 +59,13 @@ const contacts = {
           commit('SET_CONTACTS', contacts);
         })
         .then(() => {
-          if (localStorage.townId) {
-            dispatch('selectTownById', +localStorage.townId);
-          } else {
-            dispatch('selectTownById', 2);
-            //dispatch('setPopup', true);
-          }
+          dispatch('selectTownById', 2);
+          // if (localStorage.townId) {
+          //   dispatch('selectTownById', +localStorage.townId);
+          // } else {
+
+          //   dispatch('setPopup', true);
+          // }
         })
         .catch(error => {
           console.log(error);
