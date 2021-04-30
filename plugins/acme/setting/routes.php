@@ -18,6 +18,12 @@ Route::get('api/contacts', function () {
   return $contacts;
 });
 
+Route::get('api/contacts/{id}', function ($id) {
+  return Contact::whereHas('town', function ($query) use ($id) {
+    return $query->where('id', '=', $id);
+  })->with(['town'])->first();
+});
+
 Route::post('api/send-message', 'Acme\Setting\Classes\MessageController@send');
 
 Route::get('api/testimonials', function () {

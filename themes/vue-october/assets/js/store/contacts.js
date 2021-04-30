@@ -75,8 +75,15 @@ const contacts = {
 
     },
     selectTownById({commit}, data) {
-      console.log(data);
       commit('SET_TOWN', data);
+    },
+    getContactsById({commit}, data) {
+      commit('SET_PRELOADER', true);
+      axios.get('api/contacts/' + data)
+        .then(response => {
+          const data = response.data;
+          console.log(data);
+        })
     }
   },
   getters: {
