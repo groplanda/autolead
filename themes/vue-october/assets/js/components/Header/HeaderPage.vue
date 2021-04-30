@@ -53,7 +53,7 @@ export default {
   },
   computed: {
     contacts() {
-      return this.$store.getters.getContactsById(2) || {};
+      return this.$store.getters.getContactsByTown || {};
     },
     social() {
       return [
@@ -64,7 +64,7 @@ export default {
     }
   },
   created() {
-    this.phone = this.$store.getters.getContactsById(2).phone[0] || '';
+    this.phone = this.$store.getters.getContactsByTown.phone[0] || '';
   }
 }
 </script>

@@ -10,8 +10,7 @@
       icon(:name="link.ico" component="nav")._ico
       | {{ link.title }}
 
-    //- ._city(@click="$store.dispatch('setPopup', true)")
-    ._city
+    ._city(@click="$store.dispatch('setPopup', true)")
       icon(name="near_me" component="nav")._city-ico
       span._city-name {{ contacts ? contacts.town.name : '' }}
 
@@ -23,9 +22,9 @@
 
 </template>
 <script>
-import Popup from '@vue/components/Popup/Popup.vue'
-import MobileNav from './MobileNav.vue';
-import SelectCity from '@vue/components/SelectCity/SelectCity.vue';
+import Popup from '@vue/components/Popup/Popup'
+import MobileNav from './MobileNav';
+import SelectCity from '@vue/components/SelectCity/SelectCity';
 export default {
   name: "page-nav",
   components: {
@@ -38,7 +37,7 @@ export default {
       return this.$store.getters.getPopup;
     },
     contacts() {
-      return this.$store.getters.getContactsById(2);
+      return this.$store.getters.getContactsByTown;
     }
   },
   data() {

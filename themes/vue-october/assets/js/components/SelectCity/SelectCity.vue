@@ -38,8 +38,7 @@ export default {
       selectedInput.classList.add(activeClass);
 
       this.selectedTownId = id;
-
-
+      console.log(id);
     },
     onConfirm () {
       const id = this.selectedTownId;

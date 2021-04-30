@@ -31,7 +31,7 @@ const contacts = {
     },
   },
   actions: {
-    getContacts({ commit }) {
+    getContacts({ commit, dispatch }) {
       commit('SET_RESULT', []);
       commit('SET_PRELOADER', true);
 
@@ -58,13 +58,14 @@ const contacts = {
           });
           commit('SET_CONTACTS', contacts);
         })
-        // .then(() => {
-        //   if (localStorage.townId) {
-        //     dispatch('selectTownById', +localStorage.townId);
-        //   } else {
-        //     dispatch('setPopup', true);
-        //   }
-        // })
+        .then(() => {
+          if (localStorage.townId) {
+            dispatch('selectTownById', +localStorage.townId);
+          } else {
+            dispatch('selectTownById', 2);
+            dispatch('setPopup', true);
+          }
+        })
         .catch(error => {
           console.log(error);
         })
