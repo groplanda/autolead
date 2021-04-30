@@ -75,6 +75,7 @@ const contacts = {
 
     },
     selectTownById({commit}, data) {
+      console.log(data);
       commit('SET_TOWN', data);
     }
   },
