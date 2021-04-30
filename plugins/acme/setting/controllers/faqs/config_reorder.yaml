@@ -1,0 +1,5 @@
+title: Faqs
+modelClass: Acme\Setting\Models\Faq
+nameFrom: question
+toolbar:
+    buttons: reorder_toolbar

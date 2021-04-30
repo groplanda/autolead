@@ -1,0 +1,11 @@
+columns:
+    title:
+        label: Заголовок
+        type: text
+        searchable: true
+        sortable: true
+    town:
+        label: Город
+        type: text
+        select: name
+        relation: town

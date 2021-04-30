@@ -1,0 +1,10 @@
+name: Towns
+form: $/acme/setting/models/town/fields.yaml
+modelClass: Acme\Setting\Models\Town
+defaultRedirect: acme/setting/towns
+create:
+    redirect: 'acme/setting/towns/update/:id'
+    redirectClose: acme/setting/towns
+update:
+    redirect: acme/setting/towns
+    redirectClose: acme/setting/towns

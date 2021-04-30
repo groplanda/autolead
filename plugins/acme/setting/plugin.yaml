@@ -1,0 +1,37 @@
+plugin:
+    name: 'acme.setting::lang.plugin.name'
+    description: 'acme.setting::lang.plugin.description'
+    author: Acme
+    icon: oc-icon-cog
+    homepage: ''
+navigation:
+    item-service:
+        label: Настройки
+        url: acme/setting/services
+        icon: icon-cog
+        sideMenu:
+            menu-services:
+                label: Услуги
+                url: acme/setting/services
+                icon: icon-wrench
+            items-contact:
+                label: Контакты
+                url: acme/setting/contacts
+                icon: icon-phone
+            menu-gallery:
+                label: Галерея
+                url: acme/setting/galleries
+                icon: icon-image
+            items-town:
+                label: Города
+                url: acme/setting/towns
+                icon: icon-map-marker
+            side-menu-testinonials:
+                label: Отзывы
+                url: acme/setting/testimonials
+                icon: icon-users
+            side-manu-faq:
+                label: Вопрос-ответ
+                url: acme/setting/faqs
+                icon: icon-question-circle
+                attributes: {  }

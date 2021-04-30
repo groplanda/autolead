@@ -1,0 +1,4 @@
+title: Towns
+modelClass: Acme\Setting\Models\Town
+toolbar:
+    buttons: reorder_toolbar

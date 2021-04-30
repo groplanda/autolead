@@ -1,0 +1,4 @@
+title: Services
+modelClass: Acme\Setting\Models\Service
+toolbar:
+    buttons: reorder_toolbar

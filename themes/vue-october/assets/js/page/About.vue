@@ -1,12 +1,16 @@
 <template lang="pug">
-  .container
-    h1 About page
+  .page
+    ._container.container
+      Post
+      Faq
+
 </template>
 <script>
+import Faq from '@vue/components/Faq/Faq';
+import Post from '@vue/components/Post/Post';
+
 export default {
-  name: "About"
+  name: "About",
+  components: { Faq, Post }
 }
 </script>
-<style lang="scss">
-
-</style>

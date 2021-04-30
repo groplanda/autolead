@@ -1,0 +1,10 @@
+name: Testimonials
+form: $/acme/setting/models/testimonial/fields.yaml
+modelClass: Acme\Setting\Models\Testimonial
+defaultRedirect: acme/setting/testimonials
+create:
+    redirect: 'acme/setting/testimonials/update/:id'
+    redirectClose: acme/setting/testimonials
+update:
+    redirect: acme/setting/testimonials
+    redirectClose: acme/setting/testimonials

@@ -1,0 +1,10 @@
+name: Faqs
+form: $/acme/setting/models/faq/fields.yaml
+modelClass: Acme\Setting\Models\Faq
+defaultRedirect: acme/setting/faqs
+create:
+    redirect: 'acme/setting/faqs/update/:id'
+    redirectClose: acme/setting/faqs
+update:
+    redirect: acme/setting/faqs
+    redirectClose: acme/setting/faqs

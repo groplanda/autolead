@@ -1,0 +1,18 @@
+<p>
+  Вам пришло сообщение от <b>{{ name }}</b> - <b>{{ phone }}</b>
+</p>
+{% if email %}
+<p>
+  E-mail: {{ email }}
+</p>
+{% endif %}
+{% if question %}
+<p>
+  Тема сообщения: {{ question }}
+</p>
+{% endif %}
+{% if content %}
+<p>
+  Сообщение: {{ content }}
+</p>
+{% endif %}

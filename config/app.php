@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'url' => 'http://start-template',
+    'url' => 'http://vue-repair',
 
     /*
     |--------------------------------------------------------------------------
@@ -137,7 +137,7 @@ return [
     |
     */
 
-    'key' => 'HERf4Gk2UeGHeyDFR9Mk3RDOZXr5yEd9',
+    'key' => 'Cp5ZaNXgUKhH10SwpajMEWI0S0Fugmpb',
 
     'cipher' => 'AES-256-CBC',
 

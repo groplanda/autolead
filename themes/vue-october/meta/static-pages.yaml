@@ -1,0 +1,7 @@
+static-pages:
+    home: {  }
+    contact: {  }
+    about: {  }
+    repair: {  }
+    pricacy: {  }
+    404: {  }

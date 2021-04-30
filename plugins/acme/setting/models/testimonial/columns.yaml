@@ -1,0 +1,21 @@
+columns:
+    name:
+        label: Имя
+        type: text
+        searchable: true
+        sortable: true
+    sort_order:
+        label: 'Порядок сортироки'
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: Время
+        type: datetime
+        searchable: true
+        sortable: true
+    status:
+        label: Опубликовано
+        type: switch
+        searchable: false
+        sortable: true

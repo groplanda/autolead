@@ -1,0 +1,25 @@
+fields:
+    name:
+        label: 'Имя, Отчество'
+        span: full
+        type: text
+    status:
+        label: 'Опубликовать?'
+        span: auto
+        type: switch
+    description:
+        label: 'Текст отзыва'
+        size: small
+        span: full
+        type: textarea
+    avatar:
+        label: Аватар
+        mode: image
+        imageWidth: '80'
+        imageHeight: '80'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload

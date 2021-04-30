@@ -1,62 +1,50 @@
 <template lang="pug">
   .app
-    header.header
-      ._header-nav
-        router-link(to="/")._header-link Home
-        router-link(to="/about")._header-link About
-    router-view
-
+    Preloader(v-if="loader")
+    component(v-else :is="layout" name="fade")
 </template>
 
 <script>
-
+import Preloader from '@vue/components/Preloader/Preloader'
 
 export default {
-  name: "App",
+  components: {
+    Preloader
+  },
+  computed: {
+    layout() {
+      this.getPost();
+      if(!this.$route.meta.layout) {
+        return () => import(/* webpackChunkName: "page" */ '@vue/layout/PageLayout');
+      }
+      return () => import(/* webpackChunkName: "home" */ '@vue/layout/HomeLayout');
+    },
+    loader() {
+      return this.$store.getters.getPreloader
+    }
+  },
+  watch: {
+    '$route' () {
+      document.body.classList.remove("open-modal");
+    }
+  },
+  created() {
+    this.getPost();
+    this.$store.dispatch('getContacts');
+  },
+  methods: {
+    getPost() {
+      const name = this.$route.name;
+      this.$store.dispatch('fetchPost', name);
+    }
+  },
 }
 </script>
 <style lang="scss">
-body {
-  background: #f4f4f4;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.header {
-  width: 100%;
-  height: 70px;
-  background: #42b983;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  left: 0;
-  top: 0;
-
-  &__header-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
   }
-
-  &__header-link {
-    font-size: 16px;
-    font-weight: 600;
-    color: #d6ffec;
-    text-align: center;
-    margin: 0 20px;
-    text-decoration: none;
+  .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+    opacity: 0;
   }
-}
-.container {
-  text-align: center;
-}
-h1 {
-  font-size: 50px;
-  font-weight: 800;
-  margin: 0 0 40px 0;
-}
 </style>

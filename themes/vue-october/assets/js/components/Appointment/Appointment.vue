@@ -1,0 +1,109 @@
+<template lang="pug">
+  section.appointment
+    ._container.container
+      ._row
+        ContactForm
+        ._content
+          h4._title Опыт работы более
+          span._number 10 лет
+          p._descr наших сотрудников
+
+</template>
+<script>
+import ContactForm from '@vue/components/ContactForm/ContactForm'
+export default {
+  components: {
+    ContactForm
+  }
+}
+</script>
+<style lang="scss">
+@import '@/scss/vars.scss';
+
+.appointment {
+  padding: 130px 0 120px;
+  background: $dark-color;
+  position: relative;
+
+  @media(max-width: 767px) {
+    padding: 60px 0 90px;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    background: url(/themes/vue-october/assets/images/gears.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    @media(max-width: 767px) {
+      background-size: 400px;
+    }
+  }
+  &::before {
+    background-position: top right;
+  }
+  &::after {
+    background-position: top left;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__content {
+    flex: 0 1 324px;
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 26px;
+  }
+  &__title {
+    margin-bottom: 46px;
+  }
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    color: $red-color;
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 56px;
+    margin-bottom: 46px;
+  }
+  &__descr {
+    font-weight: 900;
+    font-size: 19px;
+    line-height: 26px;
+  }
+}
+
+@media(max-width: 767px) {
+  .appointment {
+    &__row {
+      flex-wrap: wrap;
+    }
+    &__content {
+      max-width: 100%;
+      flex: 1 1 100%;
+      order: 0;
+    }
+    &__title {
+      margin-bottom: 30px;
+    }
+    &__number {
+      font-size: 56px;
+      height: auto;
+      margin-bottom: 30px;
+    }
+  }
+}
+</style>

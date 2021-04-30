@@ -1,0 +1,28 @@
+fields:
+    title:
+        label: Заголовок
+        span: left
+        type: text
+    slug:
+        label: Страница
+        span: auto
+        placeholder: home
+        type: text
+        comment: 'Например: home, about'
+    description:
+        label: Описание
+        size: tiny
+        span: full
+        type: textarea
+    images:
+        label: Фотографии
+        mode: image
+        prompt: Загрузить
+        imageWidth: '120'
+        imageHeight: '120'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload

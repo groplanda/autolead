@@ -1,0 +1,9 @@
+columns:
+    name:
+        label: Название
+        type: text
+        sortable: true
+    sort_order:
+        label: Порядок
+        type: number
+        sortable: true

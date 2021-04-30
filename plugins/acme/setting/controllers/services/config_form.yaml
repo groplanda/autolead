@@ -1,0 +1,10 @@
+name: Services
+form: $/acme/setting/models/service/fields.yaml
+modelClass: Acme\Setting\Models\Service
+defaultRedirect: acme/setting/services
+create:
+    redirect: 'acme/setting/services/update/:id'
+    redirectClose: acme/setting/services
+update:
+    redirect: acme/setting/services
+    redirectClose: acme/setting/services

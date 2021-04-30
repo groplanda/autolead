@@ -1,0 +1,46 @@
+fields:
+    title:
+        label: Заголовок
+        span: full
+        type: text
+    map_cord:
+        label: 'Координаты метки'
+        span: full
+        placeholder: '[55.753215, 37.622504]'
+        type: text
+    address:
+        label: Адрес
+        span: left
+        type: text
+    email:
+        label: E-mail
+        span: right
+        type: text
+    phone:
+        label: Телефоны
+        prompt: Добавить
+        span: auto
+        type: repeater
+        form:
+            fields:
+                number:
+                    label: Телефон
+                    span: full
+                    type: text
+    open:
+        label: 'График работы'
+        prompt: Добавить
+        span: auto
+        type: repeater
+        form:
+            fields:
+                time:
+                    label: Время
+                    span: full
+                    type: text
+    town:
+        label: Город
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation

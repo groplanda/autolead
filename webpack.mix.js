@@ -19,7 +19,7 @@ mix.webpackConfig({
     alias: {
       '@': __dirname + '/themes/' + process.env.MIX_THEME + '/assets',
       '@vue': __dirname + '/themes/' + process.env.MIX_THEME + '/assets/js',
-      "@svg": __dirname + '/themes/' + process.env.MIX_THEME + '/assets/svg'
+      "@svg": __dirname + '/resources/svg',
     },
   },
   module: {

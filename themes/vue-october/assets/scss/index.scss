@@ -1,9 +1,316 @@
+@import "./vars.scss";
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-// box
-.box {
-  box-shadow: 0 0 40px 20px rgba($color: #000000, $alpha: .25);
+body {
+    color: $grey-color;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    background: #f5f5f5;
+
+    &.open-modal {
+        overflow: hidden;
+    }
 }
+
+::-webkit-scrollbar-button {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $light-color;
+}
+
+::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color: $dark-color;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: $dark-color;
+}
+
+::-webkit-resizer {
+    width: 10px;
+    height: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 900;
+}
+h1 {
+    font-size: 54px;
+    line-height: 54px;
+    @media (max-width: 1199px) {
+        font-size: 50px;
+        line-height: 52px;
+    }
+    @media (max-width: 991px) {
+        font-size: 45px;
+        line-height: 50px;
+    }
+    @media (max-width: 767px) {
+        font-size: 40px;
+        line-height: 46px;
+    }
+}
+h2 {
+    font-size: 42px;
+    line-height: 48px;
+    @media (max-width: 1199px) {
+        font-size: 40px;
+        line-height: 46px;
+    }
+    @media (max-width: 767px) {
+        font-size: 38px;
+        line-height: 42px;
+    }
+}
+h3 {
+    font-size: 36px;
+    line-height: 42px;
+    @media (max-width: 1199px) {
+        font-size: 32px;
+        line-height: 38px;
+    }
+    @media (max-width: 767px) {
+        font-size: 30px;
+        line-height: 36px;
+    }
+    @media (max-width: 680px) {
+        font-size: 20px;
+        line-height: 26px;
+    }
+}
+h4 {
+    font-size: 30px;
+    line-height: 36px;
+    @media (max-width: 1199px) {
+        font-size: 28px;
+        line-height: 34px;
+    }
+    @media (max-width: 767px) {
+        font-size: 26px;
+        line-height: 32px;
+    }
+}
+h5 {
+    font-size: 24px;
+    line-height: 30px;
+    @media (max-width: 1199px) {
+        font-size: 22px;
+        line-height: 28px;
+    }
+    @media (max-width: 767px) {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+h6 {
+    font-size: 19px;
+    line-height: 26px;
+    @media (max-width: 1199px) {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    @media (max-width: 767px) {
+        font-size: 15px;
+        line-height: 21px;
+    }
+}
+.subtitle {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+}
+p {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+%shadow-sm {
+    box-shadow: 0px 2px 4px rgba(38, 38, 38, 0.24),
+        0px 4px 8px rgba(38, 38, 38, 0.2);
+}
+.shadow-md {
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.24),
+        0px 8px 16px rgba(38, 38, 38, 0.2);
+}
+.shadow-md {
+    box-shadow: 0px 6px 12px rgba(38, 38, 38, 0.24),
+        0px 12px 24px rgba(38, 38, 38, 0.2);
+}
+.shadow-lg {
+    box-shadow: 0px 8px 16px rgba(38, 38, 38, 0.24),
+        0px 16px 24px rgba(38, 38, 38, 0.2);
+}
+.shadow-xl {
+    box-shadow: 0px 12px 24px rgba(38, 38, 38, 0.24),
+        0px 16px 24px rgba(38, 38, 38, 0.2);
+}
+.shadow-2xl {
+    box-shadow: 0px 18px 36px rgba(38, 38, 38, 0.24),
+        0px 32px 42px rgba(38, 38, 38, 0.2);
+}
+.shadow-sm-inner {
+    box-shadow: inset 0px 2px 4px rgba(38, 38, 38, 0.1),
+        inset 0px 4px 8px rgba(38, 38, 38, 0.1),
+        inset 0px 6px 12px rgba(38, 38, 38, 0.1),
+        inset 0px 8px 16px rgba(38, 38, 38, 0.08);
+}
+.shadow-md-inner {
+    box-shadow: inset 0px 2px 4px rgba(38, 38, 38, 0.14),
+        inset 0px 6px 12px rgba(38, 38, 38, 0.14),
+        inset 0px 8px 16px rgba(38, 38, 38, 0.14),
+        inset 0px 12px 24px rgba(38, 38, 38, 0.08);
+}
+a {
+    text-decoration: none;
+}
+button {
+    appearance: none;
+    outline: none;
+    background: none;
+    border: none;
+    display: inline-block;
+}
+input,
+textarea {
+    appearance: none;
+    outline: none;
+    background: none;
+    border: none;
+
+    display: block;
+    width: 100%;
+    font-family: "Roboto";
+}
+.button {
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.15px;
+    background-color: $red-color;
+    border-radius: 2px;
+    padding: 13px 24px 12px 20px;
+    position: relative;
+    transition: 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: #000;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    &__ico {
+        position: absolute;
+        width: 11px;
+        height: 11px;
+        right: 11px;
+        top: 50%;
+        fill: #fff;
+        z-index: 2;
+        transform: translateY(-50%);
+    }
+
+    &.button-arrow {
+        padding-right: 48px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 43px;
+            height: 100%;
+            right: 0;
+            top: 0;
+            z-index: 1;
+            background: #9d0909;
+            transform: skewX(-20deg) translateX(10px);
+        }
+    }
+
+    &:hover,
+    &:focus {
+        &::before {
+            opacity: 0.2;
+        }
+    }
+
+    &:focus {
+        box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.24),
+            0px 8px 16px rgba(38, 38, 38, 0.2);
+    }
+}
+.container {
+    max-width: 1060px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @media (max-width: 1199px) {
+        max-width: 991px;
+    }
+    @media (max-width: 991px) {
+        max-width: 767px;
+    }
+    @media (max-width: 767px) {
+        max-width: 100%;
+    }
+}
+.suptitle {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 29px;
+
+    &__ico {
+        width: 10px;
+        height: 14px;
+        margin-right: 18px;
+        fill: $red-color;
+        color: #959595;
+    }
+}
+.title {
+    color: $dark-color;
+}
+@import "./page.scss";
