@@ -38,7 +38,7 @@ export default {
       return this.$store.getters.getPopup;
     },
     contacts() {
-      return this.$store.getters.getContactsByTown;
+      return this.$store.getters.getContactsById(2);
     }
   },
   data() {

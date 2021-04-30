@@ -4,8 +4,10 @@
       Post
 </template>
 <script>
+import Post from '@vue/components/Post/Post';
 
 export default {
-  name: "Privacy"
+  name: "Privacy",
+  components: {Post}
 }
 </script>

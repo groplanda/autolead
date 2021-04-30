@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     contacts() {
-      return this.$store.getters.getContactsByTown || {};
+      return this.$store.getters.getContactsById(2) || {};
     }
   },
 };

@@ -34,12 +34,12 @@ export default {
   },
   computed: {
     coords() {
-      const contacts = this.$store.getters.getContactsByTown.coords;
+      const contacts = this.$store.getters.getContactsById(2).coords;
       const output = contacts.split(',');
       return output;
     },
     balloonTemplate() {
-      const contacts = this.$store.getters.getContactsByTown;
+      const contacts = this.$store.getters.getContactsById(2);
       return `
         <div class="page__map-title">Автолидер и партнеры</div>
         <p class="page__map-address">${contacts.address}</p>
