@@ -15,6 +15,7 @@ class Contact {
 const contacts = {
   state: () => ({
     contacts: [],
+    selectedContact: null
   }),
   mutations: {
     SET_CONTACTS(state, payload) {
@@ -29,6 +30,9 @@ const contacts = {
         return contact;
       })
     },
+    SET_CONTACT(state, payload) {
+      state.selectedContact = payload;
+    }
   },
   actions: {
     getContacts({ commit, dispatch }) {
@@ -82,7 +86,24 @@ const contacts = {
       axios.get('api/contacts/' + data)
         .then(response => {
           const data = response.data;
-          console.log(data);
+
+          const time = [];
+          const phones = [];
+          const town = {};
+          if ('open' in data)
+          data.open.forEach(open => time.push(open.time))
+          if ('phone' in data)
+          data.phone.forEach(phone => phones.push(phone.number))
+          if ('town' in data) {
+            town.id = data.town.id;
+            town.name = data.town.name;
+            town.selected = true;
+          }
+          commit('SET_CONTACT', new Contact( data.address, data.email, time, phones, data.title, town, data.map_cord ));
+
+        })
+        .finally(() => {
+          commit('SET_PRELOADER', false);
         })
     }
   },
@@ -96,8 +117,8 @@ const contacts = {
     getTowns: state =>  {
       return state.contacts.map(contact => contact.town);
     },
-    getContactsById: state => id => {
-      return state.contacts.find(contact => contact.town.id === id);
+    getContactsById: state => {
+      return state.selectedContact;
     }
   }
 }

@@ -8,9 +8,10 @@
         router-link(:to="{ name: link.name }")._link
           icon(:name="link.ico" component="nav")._ico
           | {{ link.title }}
-    ._city(@click="$store.dispatch('setPopup', true)")
+    //- ._city(@click="$store.dispatch('setPopup', true)")
+    ._city
       icon(name="near_me" component="nav")._city-ico
-      span._city-name {{ contacts ? contacts.town.name : '' }}
+      span._city-name {{ contacts.town.name ? contacts.town.name : '' }}
 
     MobileNav(@close="showNav = false" :links="links" :showNav="showNav" :contacts="contacts")
 
@@ -37,7 +38,7 @@ export default {
       return this.$store.getters.getPopup;
     },
     contacts() {
-      return this.$store.getters.getContactsByTown;
+      return this.$store.getters.getContactsById || {};
     }
   },
   data() {
