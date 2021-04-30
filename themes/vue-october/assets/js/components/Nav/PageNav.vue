@@ -13,8 +13,7 @@
     //- ._city(@click="$store.dispatch('setPopup', true)")
     ._city
       icon(name="near_me" component="nav")._city-ico
-      span._city-name {{ contacts.town.name ? contacts.town.name : '' }}
-
+      span._city-name Волжский
 
     MobileNav(@close="showNav = false" :links="links" :showNav="showNav" :contacts="contacts")
 

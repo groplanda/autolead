@@ -30,7 +30,7 @@ export default {
   },
   created() {
     this.getPost();
-    this.$store.dispatch('getContacts');
+    // this.$store.dispatch('getContacts');
     this.$store.dispatch('getContactsById', 2);
   },
   methods: {
