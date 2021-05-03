@@ -1,6 +1,6 @@
 <template lang="pug">
   section.gallery
-    VueGallery(:images="gallery.images" :index="index" @close="index = null")
+    VueGallery(:images="images" :index="index" @close="index = null")
     ._container.container
       ._inner
         .suptitle._suptitle
@@ -12,7 +12,7 @@
             v-for="(image, imageIndex) in gallery.images"
             :key="imageIndex"
             @click="index = imageIndex")
-            img(:src="image")._thumb
+            img(:src="image.src")._thumb
 
 
 </template>
@@ -31,11 +31,24 @@ export default {
   computed: {
     gallery() {
       return this.$store.getters.getGallery;
+    },
+    images() {
+      const res = this.$store.getters.getGallery;
+      let output = [];
+      if (res.images) {
+        output = res.images.map(img => img.src);
+      }
+      return output;
+    }
+  },
+  methods: {
+    getImages() {
+      const name = this.$route.name;
+      this.$store.dispatch('fetchGallery', name);
     }
   },
   created() {
-    const name = this.$route.name;
-    this.$store.dispatch('fetchGallery', name);
+    this.getImages();
   }
 }
 </script>

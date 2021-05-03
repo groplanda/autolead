@@ -7,6 +7,7 @@ import Contact from '@vue/page/Contact'
 import Repair from '@vue/page/Repair'
 import NotFound from '@vue/page/NotFound'
 import Privacy from '@vue/page/Privacy'
+import Gallery from '@vue/page/Gallery'
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,14 @@ const routes = [
     component: About,
     meta: {
       title: 'Автолидер и партнеры - О нас',
+    }
+  },
+  {
+    path: '/gallery',
+    name: 'gallery',
+    component: Gallery,
+    meta: {
+      title: 'Автолидер и партнеры - Галерея',
     }
   },
   {

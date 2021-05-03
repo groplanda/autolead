@@ -5,3 +5,4 @@ static-pages:
     repair: {  }
     pricacy: {  }
     404: {  }
+    gallery: {  }

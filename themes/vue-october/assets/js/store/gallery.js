@@ -24,7 +24,7 @@ const gallery = {
         const data = response.data;
         const images = [];
 
-        data.images.forEach(image => images.push(image.path));
+        data.images.forEach(image => images.push({ src: image.path, title: image.title, info: image.description }));
 
         commit('SET_GALLERY', new Gallery(data.title, data.description, images));
       })

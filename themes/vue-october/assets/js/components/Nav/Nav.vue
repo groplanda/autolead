@@ -48,6 +48,7 @@ export default {
         {title: 'Главная', name: 'home', ico: 'home'},
         {title: 'О нас', name: 'about', ico: 'about'},
         {title: 'Автосервис', name: 'car-service', ico: 'wrench'},
+        {title: 'Галерея', name: 'gallery', ico: 'gallery'},
         // {title: 'Автопрокат', name: 'vehicles', ico: 'car'},
         {title: 'Контакты', name: 'contact', ico: 'place'},
       ]

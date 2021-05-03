@@ -19,9 +19,9 @@ class TestimonialController extends Controller
   {
 
     $rules = [
-      'name'  => 'required|min:10|max:50',
+      'name'  => 'required|min:4|max:50',
       'avatar'  => 'required|mimes:jpeg,bmp,png|file|max:512',
-      'description'  => 'required|min:21|max:500'
+      'description'  => 'required|min:20|max:500'
     ];
 
     $messages = [

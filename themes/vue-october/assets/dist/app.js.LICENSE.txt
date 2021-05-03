@@ -1,4 +1,24 @@
 /*!
+ * An AutoHeight Waterfall Component For Vue2
+ * v3.0.1 ©2020 PLDaily <pcd12321@gmail.com>
+ * https://github.com/PLDaily/vue2-waterfall#readme
+ */
+
+/*!
+ * Masonry v4.2.2
+ * Cascading grid layout library
+ * https://masonry.desandro.com
+ * MIT License
+ * by David DeSandro
+ */
+
+/*!
+ * Outlayer v2.1.1
+ * the brains and guts of a layout library
+ * MIT license
+ */
+
+/*!
  * The buffer module from node.js, for the browser.
  *
  * @author   Feross Aboukhadijeh <http://feross.org>
@@ -9,6 +29,18 @@
  * Vue.js v2.6.12
  * (c) 2014-2020 Evan You
  * Released under the MIT License.
+ */
+
+/*!
+ * getSize v2.0.3
+ * measure size of elements
+ * MIT license
+ */
+
+/*!
+ * imagesLoaded v4.1.4
+ * JavaScript is all like "You images are done yet or what?"
+ * MIT License
  */
 
 /*!
