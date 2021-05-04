@@ -1,13 +1,13 @@
 <template lang="pug">
   .masonry-gallery
     VueGallery(:images="images" :index="index" @close="index = null")
-    .masonry-gallery__container
+    ._container
       Waterfall(:options="options")
-        WaterfallItem(v-for="(img, idx) in gallery" :key="idx").masonry-gallery__item
-          img(:src="img.src", :alt="img.title").masonry-gallery__img(@click="index = idx")
-          .masonry-gallery__item-title(v-if="img.title") {{ img.title }}
-          .masonry-gallery__item-descr(v-if="img.info") {{ img.info }}
-          .masonry-gallery__item-overlay
+        WaterfallItem(v-for="(img, idx) in gallery" :key="idx")._item
+          img(:src="img.src", :alt="img.title" @click="index = idx")._img
+          ._item-title(v-if="img.title") {{ img.title }}
+          ._item-descr(v-if="img.info") {{ img.info }}
+          ._item-overlay
 
 </template>
 <script>
