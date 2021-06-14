@@ -118,6 +118,8 @@ export default {
 
       const video = document.querySelector('[data-video="main"]');
       video.removeEventListener("timeupdate", this.updateVideo);
+      video.pause();
+      video.muted = true;
       setTimeout(() => {
         video.play();
         this.loading = false;
