@@ -83,7 +83,7 @@ export default {
     },
     setVideo () {
       const video = document.querySelector('[data-video="main"]');
-      video.addEventListener('timeupdate', this.updateVideo)
+      video.addEventListener('timeupdate', this.updateVideo);
     },
     updateVideo(e) {
       const time_box = document.querySelector('[data-video="time"]');
@@ -121,10 +121,9 @@ export default {
       video.pause();
       video.muted = true;
       setTimeout(() => {
-        video.play();
         this.loading = false;
         setTimeout(() => this.setVideo())
-      }, 1000)
+      }, 1500)
     },
     updateVideoIndex(val) {
        this.videoIndex = val;
@@ -345,7 +344,7 @@ export default {
   &__controls {
     position: absolute;
     position: absolute;
-    right: 15px;
+    right: 10px;
     bottom: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -353,11 +352,11 @@ export default {
   }
 
   &__controls-btn {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     z-index: 3;
     cursor: pointer;
-    margin: 0 5px;
+    margin: 0 10px;
 
     &--open {
       cursor: zoom-in;
