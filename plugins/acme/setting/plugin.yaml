@@ -35,3 +35,7 @@ navigation:
                 url: acme/setting/faqs
                 icon: icon-question-circle
                 attributes: {  }
+            menu-video:
+                label: Видео
+                url: acme/setting/videos
+                icon: icon-video-camera

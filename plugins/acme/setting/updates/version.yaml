@@ -45,3 +45,6 @@
 1.0.16:
     - 'Created table acme_setting_faq'
     - builder_table_create_acme_setting_faq.php
+1.0.17:
+    - 'Created table acme_setting_videos'
+    - builder_table_create_acme_setting_videos.php

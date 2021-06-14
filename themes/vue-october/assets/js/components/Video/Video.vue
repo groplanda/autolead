@@ -5,25 +5,37 @@
         h3._title Посмотрите видео работы нашего автосервиса!
         button._button(type="button" @click="openModal")
           icon(name="play" component="video")._button-ico
-      Popup(className="popup__dialog_video" v-if="popup" @close="closeModal" :fullscreen="fullscreen")
+      Popup(className="popup__dialog_video" v-if="popup" @close="closeModal" :fullscreen="fullscreen" :orientation="currentVideo.orientation")
         ._wrap(:class="classVideo")
-          video(src="/themes/vue-october/assets/videos/video.mp4" data-video="main" autoplay @click="stopVideo")._box
+          video(v-if="!loading" :src="'/storage/app/media/' + currentVideo.video" data-video="main" autoplay @click="stopVideo" @ended="changeVideo('next')")._box
+          ._loading(v-else)
+            ._lds-ripple.lds-ripple
+              ._lds-waves.lds-waves
+              ._lds-waves.lds-waves
           ._progress(@click="setTime($event)")
              span._percent(data-video="time")
 
           button._button.-stop(type="button" @click.stop="playVideo" v-if="stop")
             icon(name="play" component="video")._button-ico
 
-          button._controls-btn.-open(type="button" @click="fullscreen = true" v-if="!fullscreen")
-            icon(name="fullscreen_open" component="video")._controls-ico
+          ._controls
+            button._controls-btn.-prev(type="button" @click="changeVideo('prev')")
+              icon(name="next-video" component="video")._controls-ico
 
-          button._controls-btn.-exit(type="button" @click="fullscreen = false" v-else)
-            icon(name="fullscreen_exit" component="video")._controls-ico
+            button._controls-btn.-next(type="button" @click="changeVideo('next')")
+              icon(name="next-video" component="video")._controls-ico
+
+            button._controls-btn.-open(type="button" @click="fullscreen = true" v-if="!fullscreen")
+              icon(name="fullscreen_open" component="video")._controls-ico
+
+            button._controls-btn.-exit(type="button" @click="fullscreen = false" v-else)
+              icon(name="fullscreen_exit" component="video")._controls-ico
 
 </template>
 <script>
 
-import Popup from '@vue/components/Popup/Popup.vue';
+import Popup from "@vue/components/Popup/Popup";
+import axios from "axios";
 
 export default {
   name: 'Video',
@@ -35,6 +47,9 @@ export default {
       popup: false,
       stop: false,
       fullscreen: false,
+      videos: [],
+      videoIndex: 0,
+      loading: false
     }
   },
   computed: {
@@ -43,15 +58,23 @@ export default {
         'video__wrap_stop': this.stop,
         'video__wrap_full': this.fullscreen
       }
+    },
+    currentVideo() {
+      let index = this.videoIndex;
+      if(this.videoIndex > this.videos.length - 1) {
+        index = 0;
+        this.updateVideoIndex(index);
+      } else if (this.videoIndex < 0) {
+        index = this.videos.length - 1;
+        this.updateVideoIndex(index);
+      }
+      return this.videos[index]
     }
   },
   methods: {
     openModal () {
       this.popup = true;
-
-      setTimeout(() => {
-        this.setVideo();
-      })
+      setTimeout(() => this.setVideo());
     },
     closeModal () {
       this.popup = false;
@@ -59,21 +82,20 @@ export default {
       this.stop = false;
     },
     setVideo () {
-      const video = document.querySelector('[data-video="main"]'),
-            time_box = document.querySelector('[data-video="time"]');
-
-      video.addEventListener('timeupdate', function () {
-        const percent = this.currentTime / this.duration * 100;
-        if (percent) {
-          time_box.style.width = percent + '%';
-        }
-      })
+      const video = document.querySelector('[data-video="main"]');
+      video.addEventListener('timeupdate', this.updateVideo)
+    },
+    updateVideo(e) {
+      const time_box = document.querySelector('[data-video="time"]');
+      const percent = e.target.currentTime / e.target.duration * 100;
+      if (percent && time_box) {
+        time_box.style.width = percent + '%';
+      }
     },
     setTime (event) {
       const video = document.querySelector('[data-video="main"]');
       const pos = 100 * event.offsetX / video.offsetWidth;
       video.currentTime = video.duration / 100 * pos;
-
     },
     stopVideo () {
       const video = document.querySelector('[data-video="main"]');
@@ -84,8 +106,39 @@ export default {
       const video = document.querySelector('[data-video="main"]');
       video.play();
       this.stop = false;
+    },
+    changeVideo(dir) {
+      if(dir === 'next') {
+        this.videoIndex = this.videoIndex + 1;
+      } else {
+        this.videoIndex = this.videoIndex - 1;
+      }
+
+      this.loading = true;
+
+      const video = document.querySelector('[data-video="main"]');
+      video.removeEventListener("timeupdate", this.updateVideo);
+      setTimeout(() => {
+        video.play();
+        this.loading = false;
+        setTimeout(() => this.setVideo())
+      }, 1000)
+    },
+    updateVideoIndex(val) {
+       this.videoIndex = val;
     }
   },
+  created() {
+    this.loading = true;
+    axios.get("/api/videos")
+      .then(response => {
+        this.videos = response.data;
+        this.loading = false;
+      })
+      .catch(e => {
+        console.log(e);
+      })
+  }
 }
 </script>
 <style lang="scss">
@@ -235,9 +288,12 @@ export default {
       }
       #{$root} {
         &__box {
-          @media screen and ( min-width: 1600px ) and ( min-height: 800px ) {
-            object-fit: fill;
-          }
+          object-fit: cover;
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
         }
         &__progress {
           height: 8px;
@@ -284,19 +340,36 @@ export default {
     background: $red-color;
   }
 
-  &__controls-btn {
-    width: 15px;
-    height: 15px;
+  &__controls {
     position: absolute;
-    right: 20px;
+    position: absolute;
+    right: 15px;
     bottom: 20px;
-    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 
-    &_open {
+  &__controls-btn {
+    width: 20px;
+    height: 20px;
+    z-index: 3;
+    cursor: pointer;
+    margin: 0 5px;
+
+    &--open {
       cursor: zoom-in;
     }
-    &_exit {
+    &--exit {
       cursor: zoom-out;
+    }
+
+    &--prev {
+      #{$root} {
+        &__controls-ico {
+          transform: rotate(-180deg);
+        }
+      }
     }
 
     &:hover, &:focus, &:active {
@@ -308,6 +381,17 @@ export default {
     width: 100%;
     height: 100%;
     color: #FFF;
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
   }
 }
 @keyframes pulse {

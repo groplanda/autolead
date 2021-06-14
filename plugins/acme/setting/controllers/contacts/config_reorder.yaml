@@ -1,4 +1,5 @@
 title: Contacts
+nameFrom: title
 modelClass: Acme\Setting\Models\Contact
 toolbar:
     buttons: reorder_toolbar

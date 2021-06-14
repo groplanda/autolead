@@ -1,0 +1,15 @@
+columns:
+    title:
+        label: Заголовок
+        type: text
+        searchable: true
+        sortable: true
+    status:
+        label: Статус
+        type: switch
+        searchable: true
+        sortable: true
+    sort_order:
+        label: 'Порядок сортировки'
+        type: number
+        sortable: true

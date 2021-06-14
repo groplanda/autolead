@@ -2,9 +2,9 @@
   transition(name="fade")
     .preloader
       ._inner
-        ._lds-ripple
-          ._lds-waves
-          ._lds-waves
+        ._lds-ripple.lds-ripple
+          ._lds-waves.lds-waves
+          ._lds-waves.lds-waves
 
 </template>
 <script>
@@ -28,24 +28,34 @@ export default {
   z-index: 1030;
 
   &__lds-ripple {
-    display: inline-block;
-    position: relative;
     width: 80px;
     height: 80px;
   }
 
   &__lds-waves {
-    position: absolute;
-    border: 4px solid $dark-color;
-    opacity: 1;
-    border-radius: 50%;
-    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    border-color:  $dark-color;
+  }
 
-    &:nth-child(2) {
-      animation-delay: -0.5s;
-    }
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.lds-waves {
+  position: absolute;
+  border: 4px solid #FFF;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+  &:nth-child(2) {
+    animation-delay: -0.5s;
   }
 }
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }

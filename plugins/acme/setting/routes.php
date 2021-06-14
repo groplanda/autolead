@@ -3,6 +3,7 @@ use Acme\Setting\Models\Service;
 use Acme\Setting\Models\Contact;
 use Acme\Setting\Models\Testimonial;
 use Acme\Setting\Models\Faq;
+use Acme\Setting\Models\Video;
 
 Route::prefix('/api')->group(function () {
   Route::get('/post/{name}', 'Acme\Setting\Classes\Posts@getPost');
@@ -28,5 +29,8 @@ Route::prefix('/api')->group(function () {
   Route::post('/add-testimonial', 'Acme\Setting\Classes\TestimonialController@send');
   Route::get('/faq', function () {
     return Faq::orderBy('sort_order', 'asc')->get();
+  });
+  Route::get('/videos', function () {
+    return Video::orderBy('sort_order', 'asc')->where('status', 1)->get();
   });
 });

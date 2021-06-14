@@ -1,0 +1,22 @@
+fields:
+    title:
+        label: Заголовок
+        span: auto
+        type: text
+    status:
+        label: Опубликовать
+        span: auto
+        type: switch
+    orientation:
+        label: Ориентация
+        options:
+            horizontal: Горизонтальное
+            vertical: Вертикальное
+        showSearch: true
+        span: auto
+        type: dropdown
+    video:
+        label: Видео
+        mode: file
+        span: auto
+        type: mediafinder

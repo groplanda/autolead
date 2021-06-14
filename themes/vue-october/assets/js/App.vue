@@ -24,8 +24,13 @@ export default {
     }
   },
   watch: {
-    '$route' () {
+    $route() {
+      console.log('change');
       document.body.classList.remove("open-modal");
+      this.$el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
     }
   },
   created() {
