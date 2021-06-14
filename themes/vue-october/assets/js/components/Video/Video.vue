@@ -68,7 +68,7 @@ export default {
         index = this.videos.length - 1;
         this.updateVideoIndex(index);
       }
-      return this.videos[index]
+      return this.videos[index];
     }
   },
   methods: {
