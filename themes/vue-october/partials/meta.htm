@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<title>{{ this.page.meta_title ? this.page.meta_title : this.page.title }}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, width=device-width">
+<meta name="HandheldFriendly" content="True">
+<meta name="description" content="{{ this.page.meta_description }}">
+<meta name="keywords" content="Page keywords" lang="ru">
+<meta name="title" content="{{ this.page.meta_title }}">
+<meta property="og:title" content="{{ this.page.meta_title ? this.page.meta_title : this.page.title }}">
+<meta property="og:description" content="{{ this.page.meta_description }}">
+<meta property="og:image" content="/themes/vue-october/assets/images/og-image.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://автолидер-партнеры.рф">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+<link href="{{ 'assets/dist/index.css'|theme }}" rel="stylesheet">
+{% styles %}

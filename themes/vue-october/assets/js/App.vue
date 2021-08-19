@@ -13,7 +13,6 @@ export default {
   },
   computed: {
     layout() {
-      this.getPost();
       if(!this.$route.meta.layout) {
         return () => import(/* webpackChunkName: "page" */ '@vue/layout/PageLayout');
       }
@@ -25,7 +24,6 @@ export default {
   },
   watch: {
     $route() {
-      console.log('change');
       document.body.classList.remove("open-modal");
       this.$el.scrollIntoView({
         behavior: 'smooth',
@@ -34,16 +32,8 @@ export default {
     }
   },
   created() {
-    this.getPost();
-    // this.$store.dispatch('getContacts');
     this.$store.dispatch('getContactsById', 2);
-  },
-  methods: {
-    getPost() {
-      const name = this.$route.name;
-      this.$store.dispatch('fetchPost', name);
-    }
-  },
+  }
 }
 </script>
 <style lang="scss">

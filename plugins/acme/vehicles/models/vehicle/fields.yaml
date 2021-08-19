@@ -1,0 +1,54 @@
+fields:
+    brand:
+        label: Производитель
+        span: auto
+        type: text
+    model:
+        label: Модель
+        span: auto
+        type: text
+    color:
+        label: Цвет
+        span: auto
+        type: text
+    year:
+        label: 'Год выпуска'
+        span: auto
+        type: text
+    vin:
+        label: 'VIN номер'
+        span: full
+        type: text
+    description:
+        label: Описание
+        size: small
+        span: full
+        type: textarea
+    image:
+        label: Изображение
+        mode: image
+        imageWidth: '80'
+        imageHeight: '80'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    user:
+        label: Пользователь
+        nameFrom: name
+        descriptionFrom: surname
+        select: 'concat(name, '' '', surname)'
+        span: auto
+        type: relation
+tabs:
+    fields:
+        repairs:
+            label: 'Ремонты'
+            nameFrom: title
+            descriptionFrom: description
+            select: 'concat(title, '' '', created_at)'
+            span: full
+            type: relation
+            tab: 'Ремонты'

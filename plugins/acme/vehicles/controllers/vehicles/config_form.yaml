@@ -1,0 +1,10 @@
+name: Vehicles
+form: $/acme/vehicles/models/vehicle/fields.yaml
+modelClass: Acme\Vehicles\Models\Vehicle
+defaultRedirect: acme/vehicles/vehicles
+create:
+    redirect: 'acme/vehicles/vehicles/update/:id'
+    redirectClose: acme/vehicles/vehicles
+update:
+    redirect: acme/vehicles/vehicles
+    redirectClose: acme/vehicles/vehicles

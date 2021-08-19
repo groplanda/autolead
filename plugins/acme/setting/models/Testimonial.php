@@ -30,8 +30,8 @@ class Testimonial extends Model
     public $rules = [
     ];
 
-    public $attachMany = [
-      'avatar' => ['System\Models\File', 'delete' => true ]
+    public $attachOne = [
+      'avatar' => ['System\Models\File']
     ];
 
 }

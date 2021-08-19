@@ -1,0 +1,21 @@
+{% set faq = __SELF__.faq %}
+<div id="{{ __SELF__.id }}" class="faq">
+  <div class="faq__title">
+    Часто задаваемые вопросы
+  </div>
+  <div class="faq__list">
+    {% for item in faq %}
+    <div class="faq__item">
+      <div class="faq__item-heading" data-js-action="toggle-faq">
+        <div class="faq__item-title">{{ item.question }}</div>
+        <div class="faq__item-btn">
+          <svg viewBox="0 0 13 9" class="faq__item-ico icon-faq ">
+            <path d="M6.8567 7.8551L12.8596 1.85222C13.0515 1.65349 13.046 1.33682 12.8473 1.14489C12.6534 0.957649 12.3461 0.957649 12.1523 1.14489L6.50303 6.79411L0.853814 1.14489C0.658485 0.949588 0.341809 0.949588 0.146482 1.14489C-0.0488176 1.34024 -0.0488177 1.65689 0.146481 1.85222L6.14937 7.8551C6.34472 8.0504 6.66137 8.0504 6.8567 7.8551Z" fill="currentColor"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="faq__item-body" style="height: 0px;">{{ item.answer|raw }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

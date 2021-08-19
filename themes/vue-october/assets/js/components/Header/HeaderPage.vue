@@ -34,7 +34,7 @@
 </template>
 <script>
 import Popup from '@vue/components/Popup/Popup';
-import ContactForm from '@vue/components/ContactForm/ContactForm';
+import ContactForm from '@vue/components/Form/ContactForm';
 import PageNav from '@vue/components/Nav/PageNav';
 import { formattedPhone } from '@vue/helpers/formatted';
 

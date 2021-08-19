@@ -1,0 +1,122 @@
+.faq {
+
+  $root: &;
+
+  &__title {
+    font-size: 36px;
+    line-height: 42px;
+    margin-bottom: 70px;
+    @media(max-width: 1199px) {
+      font-size: 28px;
+      line-height: 34px;
+      margin-bottom: 40px;
+    }
+    @media(max-width: 767px) {
+      font-size: 26px;
+      line-height: 32px;
+      margin-bottom: 30px;
+    }
+    @media(max-width: 575px) {
+      font-size: 22px;
+      line-height: 28px;
+    }
+    @media(max-width: 349px) {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  &__item {
+    background: #FFF;
+    margin-bottom: 15px;
+    padding: 0 40px;
+    box-shadow: 0px 5px 48px rgba(49, 47, 47, 0.1);
+    border-radius: 43px;
+    transition: all .3s ease;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--active {
+      border-radius: 10px;
+
+      #{$root} {
+        &__item-btn {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    @media(max-width: 767px) {
+      padding: 0 25px;
+    }
+  }
+
+  &__item-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    cursor: pointer;
+  }
+
+  &__item-title {
+    width: 100%;
+    max-width: calc(100% - 42px);
+    color: $text-color;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    @media(max-width: 1199px) {
+      font-size: 18px;
+      line-height: 21px;
+    }
+    @media(max-width: 767px) {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__item-btn {
+    width: 32px;
+    height: 32px;
+    background: $red-color;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s ease;
+    @media(max-width: 767px) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &__item-ico {
+    color: #FFF;
+    width: 13px;
+    height: 9px;
+    @media(max-width: 767px) {
+      width: 11px;
+      height: 8px;
+    }
+  }
+
+  &__item-body {
+    height: 0;
+    overflow: hidden;
+    transition: all .3s ease;
+
+    p {
+      color: $text-color;
+      font-size: 15px;
+      line-height: 18px;
+
+      @media(max-width: 767px) {
+        font-size: 14px;
+      }
+    }
+
+  }
+}

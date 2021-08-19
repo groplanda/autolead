@@ -1,0 +1,101 @@
+description = "Contact layout"
+
+[staticPage]
+useContent = 1
+default = 0
+==
+<!DOCTYPE html>
+<html>
+  <head>
+    {% partial "meta.htm" %}
+  </head>
+  <body>
+    {% partial "loading.htm" %}
+    <!-- header start -->
+    {% partial "header.htm" %}
+    <!-- header end -->
+    <main class="is-page">
+      {% partial "hero-page.htm" %}
+      <div class="page">
+        <div class="page__container container" itemscope itemtype="http://schema.org/Organization">
+          <div class="post">
+            <div class="post__content">
+              <h1 class="post__title">Контакты</h1>
+              <div class="post__body">
+                <link itemprop="url" href="https://автолидер-партнеры.рф">
+                <meta itemprop="telephone" content="8 (937) 096-15-25">
+                <img itemprop="logo image" alt="Авто-Лидер и Партнёры" title="Авто-Лидер и Партнёры" src="{{ 'assets/images/header/logo.png'|theme }}" style="display:none;" />
+                <p><strong>Название:</strong> <span itemprop="name">ООО "Авто-Лидер и Партнёры"</span></p>
+                <p><strong>ИНН</strong> 5032315980</p>
+                <p><strong>ОГРН</strong> 1205000013041</p>
+                <p><strong>Тел:</strong> <span itemprop="telephone">+7(937)096-15-25</span></p>
+                <p><strong>Тел:</strong> <span itemprop="telephone">+7(937)555-33-25</span></p>
+                <p><strong>E-mail:</strong> <span itemprop="email">dir@автолидер-партнеры.рф</span></p>
+                <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                  <strong>Адрес:</strong>
+                  <span itemprop="streetAddress">ул. Пушкина, 101б</span>,
+                  <span itemprop="addressLocality">Волжский</span>, Волгоградская обл.,
+                  <span itemprop="postalCode">404118</span>
+                </p>
+                <p><strong>Режим работы:</strong> Ежедневно: 9:00–23:00</p>
+                <div itemprop="description">{% component 'staticPage' %}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page__map">
+          <div id="map" class="page__map-container"></div>
+        </div>
+      </div>
+    </main>
+
+    {% partial "footer.htm" %}
+
+    <div class="popup" data-js-action="popup" data-modal="form">
+      <div class="popup__dialog">
+        <div class="popup__content" data-js-action="popup-body">
+          <button type="button" class="popup__close" data-js-action="close-popup">
+            <svg viewBox="0 0 14 14" class="popup__close-ico icon-popup-close">
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="currentColor"></path>
+            </svg>
+          </button>
+          {% component 'form' %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ 'assets/dist/index.js'|theme }}"></script>
+    <script src="//api-maps.yandex.ru/2.1.74/?lang=ru_RU"></script>
+    {% framework extras %}
+    {% scripts %}
+    <script>
+    const mapEl = document.getElementById("map");
+    if (mapEl) {
+      ymaps.ready(init);
+      function init() {
+
+      var map = new ymaps.Map(mapEl, {
+          center: [48.770600, 44.828848],
+          zoom: 16
+      }, {
+          searchControlProvider: 'yandex#search'
+      });
+
+      var point = new ymaps.Placemark(map.getCenter(),
+      {
+        balloonContent: '<b>Автолидер и партнеры</b> <br>ул. Пушкина, 101Б, Волжский'
+      },
+      {
+        iconLayout: 'default#image',
+        iconImageHref: '/themes/vue-october/assets/images/map/map.svg',
+        iconImageSize: [60, 60],
+        iconImageOffset: [-35, -55],
+      });
+
+      map.geoObjects.add(point)
+      }
+    }
+    </script>
+  </body>
+</html>

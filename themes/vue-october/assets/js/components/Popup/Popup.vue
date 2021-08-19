@@ -1,6 +1,6 @@
 <template lang="pug">
   transition(name="fade" appear)
-    .popup
+    .popup(:class="scrollClass")
       ._dialog(:class="[className, popupFull]")
         ._content
           button(type="button" @click="onClose" v-if="showClose")._close
@@ -23,12 +23,21 @@ export default {
     fullscreen: {
       type: Boolean,
       default: false
+    },
+    hasSroll: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     popupFull() {
       return {
         'popup__dialog_full': this.fullscreen
+      }
+    },
+    scrollClass() {
+      return {
+        'popup_scroll': this.hasSroll
       }
     }
   },
@@ -50,7 +59,11 @@ export default {
     document.body.classList.add('open-modal');
     this.setOffset(document.body, width);
   },
+  mounted() {
+    this.$el.classList.add("popup--show");
+  },
   destroyed() {
+    this.$el.classList.remove("popup--show");
     setTimeout(() => {
     this.setOffset(document.body, 0);
     document.body.classList.remove('open-modal');
@@ -67,6 +80,11 @@ export default {
   bottom: 0;
   left: 0;
   background: rgba($color: #000, $alpha: .7);
+
+  &_scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
   $root: &;
 
@@ -114,6 +132,16 @@ export default {
         &__content {
           height: 100%;
         }
+      }
+    }
+
+    &_large {
+      max-width: 1200px;
+      @media(max-width: 1199px) {
+        max-width: calc(100% - 40px);
+      }
+      @media(max-width: 767px) {
+        max-width: calc(100% - 20px);
       }
     }
   }

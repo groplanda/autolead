@@ -1,0 +1,16 @@
+plugin:
+    name: 'acme.vehicles::lang.plugin.name'
+    description: 'acme.vehicles::lang.plugin.description'
+    author: Acme
+    icon: oc-icon-car
+    homepage: ''
+navigation:
+    item-vehicles:
+        label: Автомобили
+        url: acme/vehicles/vehicles
+        icon: icon-car
+        sideMenu:
+            item-repair:
+                label: Ремонты
+                url: acme/vehicles/repairs
+                icon: icon-wrench

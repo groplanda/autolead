@@ -1,0 +1,34 @@
+{% set testimonials = __SELF__.testimonials %}
+<section class="testimonials">
+  <div class="testimonials__container container">
+    <div class="testimonials__row">
+      <div class="testimonials__content">
+        <div class="suptitle testimonials__suptitle">
+          <svg viewBox="0 0 12 14" class="suptitle__ico icon-mark ">
+            <path d="M5.27204 0.617676L3.71362 2.17282L8.77573 7.23532L3.71362 12.2978L5.27204 13.853L11.9036 7.23532L5.27204 0.617676Z"></path>
+            <path d="M4.59077 4.42281L3.72498 3.55884L0.0407715 7.23531L3.72498 10.9118L4.59077 10.0478L1.77849 7.23531L4.59077 4.42281Z" fill="currentColor"></path>
+          </svg>наши клиенты
+        </div>
+        <h3 class="testimonials__title title">Отзывы наших клиентов</h3>
+        <button type="button" class="button" data-js-action="open-popup" data-modal-for="testimonials">Добавить отзыв</button>
+      </div>
+      <div class="swiper-container testimonials__slider" data-js-action="testimonials-slider">
+        <div class="swiper-wrapper">
+          {% for testimonial in testimonials %}
+          <div class="swiper-slide">
+            <div class="testimonials__item">
+              <div class="testimonials__item-content">
+                <p class="testimonials__item-description">{{ testimonial.description }}</p>
+              </div>
+              <div class="testimonials__item-footer">
+                <img src="{{ testimonial.avatar.path|resize(50, 50, { quality: '90' }) }}" alt="{{ testimonial.name }}" class="testimonials__item-avatar">
+                <div class="testimonials__item-name">{{ testimonial.name }} </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+title: Vehicles
+modelClass: Acme\Vehicles\Models\Vehicle
+nameFrom: model
+toolbar:
+    buttons: reorder_toolbar

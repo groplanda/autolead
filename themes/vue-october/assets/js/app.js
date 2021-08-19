@@ -12,9 +12,11 @@ Vue.use(VueMask)
 
 Vue.component('icon', Icon);
 
-new Vue({
-  el: '#app',
-  router,
-  store,
-  components: { App }
+store.dispatch('autoLogin').then(() => {
+  new Vue({
+    el: '#app',
+    router,
+    store,
+    components: { App }
+  })
 })

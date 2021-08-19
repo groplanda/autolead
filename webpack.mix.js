@@ -59,10 +59,10 @@ mix.webpackConfig({
         ]
       }
     ]
-  },
+  }
 });
 
-mix.js('./themes/'+ process.env.MIX_THEME + '/assets/js/app.js', 'dist')
+mix.js('./themes/'+ process.env.MIX_THEME + '/assets/js/index.js', 'dist')
 .vue()
 .sass('./themes/'+ process.env.MIX_THEME + '/assets/scss/index.scss', 'dist')
 .version()

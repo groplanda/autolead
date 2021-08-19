@@ -1,0 +1,45 @@
+<form
+  id="{{ __SELF__.id }}"
+  class="ajax-form form form--shadow"
+  data-request="{{ __SELF__ }}::onSend"
+  data-request-validate
+  data-request-flash>
+  <h3 class="form__title title">Оставьте заявку</h3>
+  <div class="form__row">
+    <div class="form__group">
+      <input type="text" placeholder="Ваше имя*" name="name" class="form__control">
+      <span class="form__error" data-validate-for="name"></span>
+    </div>
+    <div class="form__group">
+      <input type="text" placeholder="E-mail" name="email" class="form__control">
+      <span class="form__error" data-validate-for="email"></span>
+    </div>
+    <div class="form__group">
+      <input type="text" placeholder="Ваш номер телефона*" name="phone" data-js-action="phone" class="form__control">
+      <span class="form__error" data-validate-for="phone"></span>
+    </div>
+    <div class="form__group">
+      <input type="text" placeholder="Ваш вопрос" name="question" class="form__control">
+      <span class="form__error" data-validate-for="question"></span>
+    </div>
+    <div class="form__group form__group--full">
+      <textarea placeholder="Ваше сообщение" class="form__control form__control--textarea" name="content"></textarea>
+      <span class="form__error" data-validate-for="content"></span>
+    </div>
+  </div>
+  <div class="form__row form__row--align-center">
+    <label class="form__confirm" data-js-action="confirm-form">
+      <div class="form__confirm-inner">
+        <input type="checkbox" class="form__confirm-input" data-js-action="checkbox-form">
+        <div class="form__confirm-box"></div>
+      </div>
+      <div class="form__confirm-text">Я согласен с <a href="/privacy" target="_blank" rel="noopener noreferrer" class="form__confirm-link">Политикой конфиденциальности</a> и обработки персональных данных</div>
+    </label>
+    <button type="submit" class="form__button button" data-attach-loading disabled data-js-action="submit-form">Отправить</button>
+  </div>
+  {% flash %}
+  <div class="alert alert-{{ type }}" data-interval="4">
+      {{ message }}
+  </div>
+  {% endflash %}
+</form>

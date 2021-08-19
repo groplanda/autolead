@@ -39,3 +39,7 @@ navigation:
                 label: Видео
                 url: acme/setting/videos
                 icon: icon-video-camera
+            side-menu-message:
+                label: 'Заявки из форм'
+                url: acme/setting/messages
+                icon: icon-briefcase

@@ -1,0 +1,25 @@
+{% set gallery = __SELF__.gallery %}
+
+<section class="gallery">
+  <div class="gallery__container container">
+    <div class="gallery__inner">
+      <div class="suptitle gallery__suptitle">
+        <svg viewBox="0 0 12 14" class="suptitle__ico icon-mark ">
+          <path d="M5.27204 0.617676L3.71362 2.17282L8.77573 7.23532L3.71362 12.2978L5.27204 13.853L11.9036 7.23532L5.27204 0.617676Z"></path>
+          <path d="M4.59077 4.42281L3.72498 3.55884L0.0407715 7.23531L3.72498 10.9118L4.59077 10.0478L1.77849 7.23531L4.59077 4.42281Z" fill="currentColor"></path>
+        </svg>
+        {{ gallery.title|raw }}
+      </div>
+      <h3 class="gallery__title title"> {{ gallery.description }}</h3>
+      <div class="gallery__row" data-js-action="gallery">
+        {% for image in gallery.images %}
+        {% set full = image.thumb(1200, false) %}
+        {% set preview = image.thumb(410, 230, {'mode': 'crop'}) %}
+        <div class="gallery__item" data-src="{{ full }}">
+          <img src="{{ preview }}" class="gallery__thumb" alt="{{ image.description ? image.description : image.file_name }}" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

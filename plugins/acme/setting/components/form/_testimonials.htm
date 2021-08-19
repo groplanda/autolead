@@ -1,0 +1,60 @@
+<form
+  class="ajax-form form form--modal"
+  id="{{ __SELF__.id }}"
+  data-request="{{ __SELF__ }}::onAddTestimonial"
+  data-request-validate
+  data-request-flash
+  data-request-files
+>
+  <input type="hidden" name="_handler" value="onAddTestimonial" />
+  {{ form_token() }}
+  {{ form_sessionKey() }}
+  <h5 class="form__title title">Добавить отзыв</h5>
+  <div class="form__row">
+    <div class="form__group form__group--full">
+      <input type="text" placeholder="Как вас зовут?*" class="form__control" name="name">
+      <span class="form__error" data-validate-for="name"></span>
+    </div>
+    <div class="form__group form__group--full">
+      <textarea placeholder="Ваш отзыв*" class="form__control form__control--textarea" name="description"></textarea>
+      <span class="form__error" data-validate-for="description"></span>
+    </div>
+    <div class="form__group form__group--full form__group--hidden" data-js-action="form-group-avatar">
+      <div class="form__preview">
+        <img src="{{ 'assets/images/header/logo.png'|theme }}" alt="preview" class="form__preview-thumb" data-js-action="avatar-preview" />
+      </div>
+    </div>
+    <div class="form__group form__group--full">
+      <label class="form__label form__label--file">
+        <div class="form__file-btn">
+          <svg viewBox="0 0 22 12" class="form__file-ico icon-attach ">
+            <path d="M17 10H5.5C3.29 10 1.5 8.21 1.5 6C1.5 3.79 3.29 2 5.5 2H18C19.38 2 20.5 3.12 20.5 4.5C20.5 5.88 19.38 7 18 7H7.5C6.95 7 6.5 6.55 6.5 6C6.5 5.45 6.95 5 7.5 5H17V3.5H7.5C6.12 3.5 5 4.62 5 6C5 7.38 6.12 8.5 7.5 8.5H18C20.21 8.5 22 6.71 22 4.5C22 2.29 20.21 0.5 18 0.5H5.5C2.46 0.5 0 2.96 0 6C0 9.04 2.46 11.5 5.5 11.5H17V10Z" fill="currentColor"></path>
+          </svg>
+        </div>
+        <div class="form__file-name">Добавьте фото*</div>
+        <input type="file" id="file" name="avatar" class="form__file-input" data-js-action="upload-avatar" />
+        <div class="form__file-btn form__file-btn--hide form__file-btn--remove" data-js-action="remove-avatar-preview">
+          <svg viewBox="0 0 20 20" class="form__file-ico icon-remove ">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 10C0 4.48 4.48 0 10 0C15.52 0 20 4.48 20 10C20 15.52 15.52 20 10 20C4.48 20 0 15.52 0 10ZM5 11H15V9H5V11Z" fill="currentColor"></path>
+          </svg>
+        </div>
+      </label>
+      <span class="form__error" data-validate-for="avatar"></span>
+    </div>
+  </div>
+  <div class="form__row form__row--align-center">
+    <label class="form__confirm" data-js-action="confirm-form">
+      <div class="form__confirm-inner">
+        <input type="checkbox" class="form__confirm-input" data-js-action="checkbox-form">
+        <div class="form__confirm-box"></div>
+      </div>
+      <div class="form__confirm-text">Я согласен с <a href="/privacy" target="_blank" rel="noopener noreferrer" class="form__confirm-link">Политикой конфиденциальности</a> и обработки персональных данных</div>
+    </label>
+    <button type="submit" class="form__button button" data-attach-loading disabled>Добавить</button>
+  </div>
+  {% flash %}
+  <div class="alert alert-{{ type }}" data-interval="4">
+      {{ message }}
+  </div>
+  {% endflash %}
+</form>

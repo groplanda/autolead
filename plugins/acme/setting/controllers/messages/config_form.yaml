@@ -1,0 +1,10 @@
+name: Messages
+form: $/acme/setting/models/message/fields.yaml
+modelClass: Acme\Setting\Models\Message
+defaultRedirect: acme/setting/messages
+create:
+    redirect: 'acme/setting/messages/update/:id'
+    redirectClose: acme/setting/messages
+update:
+    redirect: acme/setting/messages
+    redirectClose: acme/setting/messages

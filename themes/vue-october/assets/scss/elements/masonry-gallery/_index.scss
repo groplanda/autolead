@@ -1,0 +1,73 @@
+.masonry-gallery {
+  width: 100%;
+  position: relative;
+  $root: &;
+
+  &__grid {
+    position: relative;
+  }
+
+  &__item {
+    position: absolute;
+  }
+
+  &__item-inner {
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 2.5px;
+
+    &:hover {
+      #{$root} {
+        &__item-overlay {
+          opacity: 0;
+          pointer-events: none;
+        }
+        &__item-title, &__item-descr {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+  }
+
+  &__item-title, &__item-descr, &__item-overlay {
+    position: absolute;
+  }
+
+  &__item-title, &__item-descr {
+    padding: 0 15px;
+    color: #FFF;
+    z-index: 2;
+    transition: transform .3s ease;
+    transform: translateY(150px);
+  }
+
+  &__item-title {
+    font-size: 16px;
+    line-height: 18px;
+    bottom: 50px;
+  }
+
+  &__item-descr {
+    font-size: 14px;
+    line-height: 16px;
+    bottom: 25px;
+  }
+
+  &__item-overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom , rgba(0,0,0,0), rgba($dark-color, .7));
+    z-index: 1;
+    opacity: 1;
+    transition: opacity .3s ease;
+  }
+}

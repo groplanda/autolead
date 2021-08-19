@@ -1,0 +1,16 @@
+{% set gallery = __SELF__.gallery %}
+
+<div class="masonry-gallery">
+  <div class="masonry-gallery__container">
+    <div class="masonry-gallery__grid" data-js-action="gallery" data-gallery="masonry">
+      {% for image in gallery.images %}
+      <div class="masonry-gallery__item" data-src="{{ image.path }}">
+        <div class="masonry-gallery__item-inner">
+          <img src="{{ image.path }}" class="masonry-gallery__img" alt="{{ image.description ? image.description : image.file_name }}" />
+          <div class="masonry-gallery__item-overlay"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+description = "404 page"
+==
+<!DOCTYPE html>
+<html>
+  <head>
+    {% partial "meta.htm" %}
+  </head>
+  <body>
+    {% partial "loading.htm" %}
+    <!-- header start -->
+    {% partial "header.htm" %}
+    <!-- header end -->
+    <main class="is-page">
+      {% partial "hero-page.htm" %}
+      <div class="page">
+        <div class="page__container page__container--not-found container">
+          <h1 class="page__not-found">404</h1>
+          <div class="page__lead">Страница, на которую вы перешли не существует. Попробуйте вернуться на главную страницу.</div>
+          <a href="/" class="page__button button active">Вернуться на главную</a>
+            <svg viewBox="0 0 960 361" class="page__404 icon-404 ">
+            <path d="M182.746 355.017V279.725H12.4486L0 225.376L191.211 3.49032H255.944V217.398H302.751V279.725H255.944V355.017H182.746ZM90.1281 217.398H182.746V108.699L90.1281 217.398Z" fill="currentColor"></path>
+            <path d="M596.266 309.642C567.386 343.881 530.04 361 484.229 361C438.418 361 401.238 343.881 372.689 309.642C344.14 275.404 329.866 232.356 329.866 180.5C329.866 128.976 344.306 86.0948 373.187 51.8563C402.068 17.2854 439.414 0 485.225 0C530.704 0 567.717 17.1192 596.266 51.3577C625.147 85.5962 639.588 128.644 639.588 180.5C639.588 232.024 625.147 275.071 596.266 309.642ZM429.455 260.279C443.729 281.221 462.319 291.692 485.225 291.692C508.13 291.692 526.388 281.387 539.999 260.778C553.941 239.836 560.912 213.076 560.912 180.5C560.912 148.588 553.775 122.162 539.501 101.22C525.226 79.9452 506.802 69.308 484.229 69.308C461.655 69.308 443.397 79.779 429.455 100.721C415.512 121.331 408.541 147.924 408.541 180.5C408.541 212.744 415.512 239.337 429.455 260.279Z" fill="currentColor"></path>
+            <path d="M839.995 355.017V279.725H669.698L657.249 225.376L848.46 3.49032H913.193V217.398H960V279.725H913.193V355.017H839.995ZM747.377 217.398H839.995V108.699L747.377 217.398Z" fill="currentColor"></path>
+          </svg>
+        </div>
+      </div>
+    </main>
+
+    {% partial "footer.htm" %}
+
+    <div class="popup" data-js-action="popup" data-modal="form">
+      <div class="popup__dialog">
+        <div class="popup__content" data-js-action="popup-body">
+          <button type="button" class="popup__close" data-js-action="close-popup">
+            <svg viewBox="0 0 14 14" class="popup__close-ico icon-popup-close">
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="currentColor"></path>
+            </svg>
+          </button>
+          {% component 'form' %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ 'assets/dist/index.js'|theme }}"></script>
+    {% framework extras %}
+    {% scripts %}
+  </body>
+</html>

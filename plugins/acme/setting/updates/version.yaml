@@ -48,3 +48,9 @@
 1.0.17:
     - 'Created table acme_setting_videos'
     - builder_table_create_acme_setting_videos.php
+1.0.18:
+    - 'Created table acme_setting_message'
+    - builder_table_create_acme_setting_message.php
+1.0.19:
+    - 'Updated table acme_setting_message'
+    - builder_table_update_acme_setting_message.php

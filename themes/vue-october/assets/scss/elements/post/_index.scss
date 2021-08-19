@@ -1,0 +1,28 @@
+.post {
+  &__title {
+    font-size: 36px;
+    line-height: 42px;
+    margin-bottom: 70px;
+    @media (max-width: 1199px) {
+      font-size: 28px;
+      line-height: 34px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 767px) {
+      font-size: 26px;
+      line-height: 32px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__body {
+    margin-bottom: 40px;
+
+    p {
+      color: $text-color;
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 20px;
+    }
+  }
+}

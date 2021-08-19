@@ -1,0 +1,35 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table acme_vehicles_vehicle'
+    - builder_table_create_acme_vehicles_vehicle.php
+1.0.3:
+    - 'Created table acme_vehicles_repair'
+    - builder_table_create_acme_vehicles_repair.php
+1.0.4:
+    - 'Created table acme_vehicles_vehicle_repair'
+    - builder_table_create_acme_vehicles_vehicle_repair.php
+1.0.5:
+    - 'Updated table acme_vehicles_vehicle'
+    - builder_table_update_acme_vehicles_vehicle.php
+1.0.6:
+    - 'Updated table acme_vehicles_vehicle'
+    - builder_table_update_acme_vehicles_vehicle_2.php
+1.0.7:
+    - 'Updated table acme_vehicles_repair'
+    - builder_table_update_acme_vehicles_repair.php
+1.0.8:
+    - 'Updated table acme_vehicles_repair'
+    - builder_table_update_acme_vehicles_repair_2.php
+1.0.9:
+    - 'Updated table acme_vehicles_repair'
+    - builder_table_update_acme_vehicles_repair_3.php
+1.0.10:
+    - 'Updated table acme_vehicles_vehicle'
+    - builder_table_update_acme_vehicles_vehicle_3.php
+1.0.11:
+    - 'Updated table acme_vehicles_repair'
+    - builder_table_update_acme_vehicles_repair_4.php
+1.0.12:
+    - 'Drop table acme_vehicles_vehicle_repair'
+    - builder_table_delete_acme_vehicles_vehicle_repair.php

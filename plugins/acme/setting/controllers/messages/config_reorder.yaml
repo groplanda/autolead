@@ -1,0 +1,5 @@
+title: Messages
+nameFrom: name
+modelClass: Acme\Setting\Models\Message
+toolbar:
+    buttons: reorder_toolbar

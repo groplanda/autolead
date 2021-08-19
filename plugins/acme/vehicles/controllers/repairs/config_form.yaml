@@ -1,0 +1,10 @@
+name: Repairs
+form: $/acme/vehicles/models/repair/fields.yaml
+modelClass: Acme\Vehicles\Models\Repair
+defaultRedirect: acme/vehicles/repairs
+create:
+    redirect: 'acme/vehicles/repairs/update/:id'
+    redirectClose: acme/vehicles/repairs
+update:
+    redirect: acme/vehicles/repairs
+    redirectClose: acme/vehicles/repairs

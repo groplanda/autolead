@@ -1,85 +1,72 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '@vue/page/Home'
-import About from '@vue/page/About'
-import Contact from '@vue/page/Contact'
-import Repair from '@vue/page/Repair'
-import NotFound from '@vue/page/NotFound'
-import Privacy from '@vue/page/Privacy'
-import Gallery from '@vue/page/Gallery'
+import Auth from '@vue/page/Auth'
+import Account from '@vue/page/Account'
+import Cars from '@vue/page/Cars'
+import AddCar from '@vue/page/AddCar'
+import SingleCar from '@vue/page/SingleCar'
+import authGuard from './auth-guard.js'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: Home,
+    path: '/auth',
+    name: 'auth',
+    component: Auth,
     meta: {
-      title: 'Автолидер и партнеры - Главная',
+      title: 'Автолидер и партнеры - Вход в личный кабинет',
+      //layout: 'home'
+    }
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: Account,
+    beforeEnter: authGuard,
+    meta: {
+      title: 'Автолидер и партнеры - Личный кабинет',
       layout: 'home'
-    }
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: About,
-    meta: {
-      title: 'Автолидер и партнеры - О нас',
-    }
-  },
-  {
-    path: '/gallery',
-    name: 'gallery',
-    component: Gallery,
-    meta: {
-      title: 'Автолидер и партнеры - Галерея',
-    }
-  },
-  {
-    path: '/car-service',
-    name: 'car-service',
-    component: Repair,
-    meta: {
-      title: 'Автолидер и партнеры - Услуги',
-    }
-  },
-  {
-    path: '/contact',
-    name: 'contact',
-    component: Contact,
-    meta: {
-      title: 'Автолидер и партнеры - Контакты',
-    }
-  },
-  {
-    path: '/privacy',
-    name: 'privacy',
-    component: Privacy,
-    meta: {
-      title: 'Автолидер и партнеры - Политика в отношении обработки персональных данных',
-    }
-  },
-  // {
-  //   path: '/vehicles',
-  //   name: 'vehicles',
-  //   component: Contact,
-  //   meta: {
-  //     title: 'Contact page',
-  //   }
-  // },
-  {
-    path: '/404',
-    name: '404',
-    component: NotFound,
-    meta: {
-      title: 'Автолидер и партнеры - Страница не найдена',
-    }
-  },
-  {
-    path: '*',
-    redirect: '/404',
+    },
+    children: [
+      {
+        path: 'cars',
+        component: Cars,
+        name: 'account-cars',
+        meta: {
+          title: 'Автолидер и партнеры - Мои авто',
+          layout: 'home'
+        },
+      },
+      {
+        path: 'cars/add',
+        component: AddCar,
+        name: 'add-car',
+        meta: {
+          title: 'Автолидер и партнеры - Добавить авто',
+          layout: 'home'
+        },
+      },
+      {
+        path: 'cars/:id',
+        component: SingleCar,
+        name: 'single-car',
+        meta: {
+          title: 'Автолидер и партнеры - Мой авто',
+          layout: 'home'
+        },
+      },
+      {
+        path: 'repair/:id',
+        component: SingleCar,
+        name: 'single-repair',
+        meta: {
+          title: 'Автолидер и партнеры - Добавить ремонт',
+          layout: 'home'
+        },
+      },
+    ]
   }
 ]
 

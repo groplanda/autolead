@@ -1,0 +1,28 @@
+fields:
+    name:
+        label: Имя
+        span: auto
+        type: text
+    phone:
+        label: Text
+        span: auto
+        type: text
+    created_at:
+        label: Добавлено
+        mode: datetime
+        span: full
+        readOnly: 1
+        type: datepicker
+    question:
+        label: Вопрос
+        span: auto
+        type: text
+    email:
+        label: E-mail
+        span: auto
+        type: text
+    content:
+        label: 'Текст сообщения'
+        size: large
+        span: full
+        type: textarea

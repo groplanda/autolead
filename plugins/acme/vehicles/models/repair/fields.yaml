@@ -1,0 +1,82 @@
+fields:
+    title:
+        label: Заголовок
+        span: auto
+        type: text
+    status:
+        label: Статус
+        options:
+            waiting: Ожидание
+            canceled: Отменен
+            done: Выполнено
+            process: 'В работе'
+            another: Другое
+        showSearch: true
+        span: auto
+        type: dropdown
+    created_at:
+        label: Добавлен
+        mode: date
+        span: auto
+        readOnly: 1
+        type: datepicker
+    updated_at:
+        label: Обновлено
+        mode: date
+        span: auto
+        type: datepicker
+    price:
+        label: Стоимость
+        span: auto
+        type: text
+    mileage:
+        label: Пробег
+        span: auto
+        type: text
+    spare_parts:
+        label: Запчасти
+        prompt: 'Добавить запчасть'
+        style: default
+        span: full
+        type: repeater
+        form:
+            fields:
+                name:
+                    label: Название
+                    span: auto
+                    type: text
+                cost:
+                    label: Стоимость
+                    span: auto
+                    type: text
+                info:
+                    label: Описание
+                    size: tiny
+                    span: full
+                    type: textarea
+    description:
+        label: 'Описание ремонта'
+        size: giant
+        span: full
+        type: textarea
+    images:
+        label: Галерея
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+tabs:
+    fields:
+        vehicle:
+            label: Автомобиль
+            nameFrom: name
+            descriptionFrom: description
+            select: 'concat(brand, '' '', model)'
+            span: full
+            type: relation
+            tab: Автомобиль
