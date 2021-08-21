@@ -42,8 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gutter: 10,
       ultimateGutter: 5
     })
-
-    layout.layout();
+    setTimeout(() => layout.layout(), 250);
   }
 
   const stat = document.querySelector('[data-js-action="stats"]');

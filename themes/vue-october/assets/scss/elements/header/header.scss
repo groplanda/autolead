@@ -1,5 +1,6 @@
 .header {
   position: relative;
+  $root: &;
   &__wrap {
     position: absolute;
     left: 0;
@@ -139,6 +140,5 @@
     @media (max-width: 767px) {
       display: none;
     }
-
   }
 }
