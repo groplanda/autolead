@@ -47,7 +47,11 @@ galleryType = "home"
             {% page %}
           </div>
           <div class="about__image">
-            <img src="{{ 'assets/images/about/about.jpg'|theme }}" class="about__poster" alt="Запишитесь к нам на техобслуживание">
+            <picture class="about__poster">
+              <source srcset="{{ 'assets/images/about/about.webp'|theme }}" type="image/webp">
+              <source srcset="{{ 'assets/images/about/about.jpg'|theme }}" type="image/jpeg">
+              <img src="{{ 'assets/images/about/about.jpg'|theme }}"  alt="Запишитесь к нам на техобслуживание">
+            </picture>
           </div>
         </section>
       </div>
@@ -170,7 +174,11 @@ galleryType = "home"
                 </div>
                 <h3 class="stats__title title">Индивидуальный подход к каждому клиенту.</h3>
               </div>
-              <img src="/themes/vue-october/assets/images/stats/stats-car.jpg" alt="alt" class="stats__img">
+              <picture class="stats__img">
+                <source srcset="{{ 'assets/images/stats/stats-car.webp'|theme }}" type="image/webp">
+                <source srcset="{{ 'assets/images/stats/stats-car.jpg'|theme }}" type="image/jpeg">
+                <img src="{{ 'assets/images/stats/stats-car.jpg'|theme }}"  alt="Запишитесь к нам на техобслуживание">
+              </picture>
             </div>
           </div>
           <div class="stats__list">

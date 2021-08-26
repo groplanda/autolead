@@ -26,6 +26,24 @@ body {
       z-index: -1;
     }
   }
+
+  &.webp {
+    .hero {
+      background-image: url('/themes/vue-october/assets/images/hero/hero.webp');
+    }
+    .video  {
+      background-image: url('/themes/vue-october/assets/images/video/video.webp');
+    }
+  }
+
+  &.no-webp {
+    .hero {
+      background-image: url('/themes/vue-october/assets/images/hero/hero.jpg');
+    }
+    .video  {
+      background-image: url('/themes/vue-october/assets/images/video/video.jpg');
+    }
+  }
 }
 
 ::-webkit-scrollbar-button {

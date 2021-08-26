@@ -9,6 +9,24 @@ import MiniMasonry from './modules/minimasonry.js';
 import $ from 'jquery';
 window.jQuery = $;
 
+async function supportsWebp() {
+  if (!self.createImageBitmap) return false;
+
+  const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+  const blob = await fetch(webpData).then(r => r.blob());
+  return createImageBitmap(blob).then(() => true, () => false);
+}
+
+(async () => {
+  const bodyEl = document.body;
+  if(await supportsWebp()) {
+    bodyEl.classList.add("webp")
+  }
+  else {
+    bodyEl.classList.add("no-webp")
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
 
   setTimeout(() => document.body.classList.add('loaded'), 200);
