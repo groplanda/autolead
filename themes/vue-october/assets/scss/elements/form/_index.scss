@@ -399,6 +399,7 @@
   }
 
   &__confirm-box {
+    display: flex;
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -422,6 +423,7 @@
   }
 
   &__confirm-text {
+    display: block;
     width: 100%;
     max-width: calc(100% - 30px);
     color: $grey-color;
