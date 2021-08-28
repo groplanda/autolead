@@ -314,4 +314,115 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     phones.forEach(p => IMask(p, maskOptions));
   }
+
+  const mapEl = document.getElementById("map");
+
+  if (mapEl) {
+    (function () {
+      let check_if_load = false;
+      const loadedEl = mapEl.nextElementSibling;
+
+      function init () {
+        // eslint-disable-next-line no-undef
+        const myMapTemp = new ymaps.Map(mapEl, {
+          center: [48.770600, 44.828848],
+          zoom: 15,
+          controls: ['zoomControl', 'fullscreenControl']
+        });
+
+        // eslint-disable-next-line no-undef
+        const myPlacemarkTemp = new ymaps.Placemark(myMapTemp.getCenter(), {
+          balloonContent: "<b>Автолидер и партнеры</b> <br>ул. Пушкина, 101Б, Волжский",
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: '/themes/vue-october/assets/images/map/map.svg',
+          iconImageSize: [60, 60],
+          iconImageOffset: [-35, -55],
+        });
+
+        myMapTemp.geoObjects.add(myPlacemarkTemp);
+        const layer = myMapTemp.layers.get(0).get(0);
+
+        waitForTilesLoad(layer).then(function() {
+          loadedEl.classList.remove('loading--active');
+        });
+
+      }
+
+      function waitForTilesLoad(layer) {
+
+        // eslint-disable-next-line no-undef
+        return new ymaps.vow.Promise(function (resolve) {
+          var tc = getTileContainer(layer), readyAll = true;
+          tc.tiles.each(function (tile) {
+            if (!tile.isReady()) {
+              readyAll = false;
+            }
+          });
+          if (readyAll) {
+            resolve();
+          } else {
+            tc.events.once("ready", function() {
+              resolve();
+            });
+          }
+        });
+      }
+
+      function getTileContainer(layer) {
+        for (var k in layer) {
+          // eslint-disable-next-line no-prototype-builtins
+          if (layer.hasOwnProperty(k)) {
+            if (
+              // eslint-disable-next-line no-undef
+              layer[k] instanceof ymaps.layer.tileContainer.CanvasContainer || layer[k] instanceof ymaps.layer.tileContainer.DomContainer
+            ) {
+              return layer[k];
+            }
+          }
+        }
+        return null;
+      }
+
+      function loadScript(url, callback){
+        const script = document.createElement("script");
+
+        if (script.readyState){  // IE
+          script.onreadystatechange = function(){
+            if (script.readyState == "loaded" ||
+                    script.readyState == "complete"){
+              script.onreadystatechange = null;
+              callback();
+            }
+          };
+        } else {
+          script.onload = function(){
+            callback();
+          };
+        }
+
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(script);
+      }
+
+      var ymap = function() {
+        $(mapEl).mouseenter(function(){
+            if (!check_if_load) {
+              check_if_load = true;
+              loadedEl.classList.add('loading--active');
+              loadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;loadByRequire=1", function(){
+                // eslint-disable-next-line no-undef
+                ymaps.load(init);
+              });
+            }
+          }
+        );
+      }
+
+      $(function() {
+        ymap();
+      });
+
+    }());
+  }
 });

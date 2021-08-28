@@ -5,7 +5,7 @@ useContent = 1
 default = 0
 ==
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     {% partial "meta.htm" %}
   </head>
@@ -45,6 +45,22 @@ default = 0
         </div>
         <div class="page__map">
           <div id="map" class="page__map-container"></div>
+          <div class="loading loading--map">
+            <div class="loading__wrapper">
+              <div class="loading__layer">
+                <div class="loading__circle-clipper loading__circle-clipper--left">
+                  <div class="loading__circle"></div>
+                </div>
+                <div class="loading__gap-path">
+                  <div class="loading__circle"></div>
+                </div>
+                <div class="loading__circle-clipper loading__circle-clipper--right">
+                  <div class="loading__circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img src="{{ 'assets/images/map/map-placeholder.jpg'|theme }}" alt="карта" class="page__map-image" />
         </div>
       </div>
     </main>
@@ -66,36 +82,7 @@ default = 0
 
     <!-- Scripts -->
     <script src="{{ 'assets/dist/index.js'|theme }}"></script>
-    <script src="//api-maps.yandex.ru/2.1.74/?lang=ru_RU"></script>
     {% framework extras %}
     {% scripts %}
-    <script>
-    const mapEl = document.getElementById("map");
-    if (mapEl) {
-      ymaps.ready(init);
-      function init() {
-
-      var map = new ymaps.Map(mapEl, {
-          center: [48.770600, 44.828848],
-          zoom: 16
-      }, {
-          searchControlProvider: 'yandex#search'
-      });
-
-      var point = new ymaps.Placemark(map.getCenter(),
-      {
-        balloonContent: '<b>Автолидер и партнеры</b> <br>ул. Пушкина, 101Б, Волжский'
-      },
-      {
-        iconLayout: 'default#image',
-        iconImageHref: '/themes/vue-october/assets/images/map/map.svg',
-        iconImageSize: [60, 60],
-        iconImageOffset: [-35, -55],
-      });
-
-      map.geoObjects.add(point)
-      }
-    }
-    </script>
   </body>
 </html>

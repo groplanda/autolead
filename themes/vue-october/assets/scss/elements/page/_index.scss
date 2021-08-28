@@ -42,11 +42,27 @@
   &__map {
     width: 100%;
     height: 600px;
+    position: relative;
+    @media(max-width: 767px) {
+      height: 350px;
+    }
   }
 
   &__map-container {
     width: 100%;
     height: 100%;
+    z-index: 3;
+    position: relative;
+  }
+
+  &__map-image {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
   }
 
   &__map-title {
