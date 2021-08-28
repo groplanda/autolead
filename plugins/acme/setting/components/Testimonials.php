@@ -17,7 +17,7 @@ class Testimonials extends ComponentBase {
 
     public function onRun() {
       $testimonials = new Testimonial;
-      $this->testimonials = $testimonials::with(['avatar'])->orderBy('sort_order', 'asc')->where('status', 1)->get();
+      $this->testimonials = $testimonials::with(['avatar'])->orderBy('created_at', 'asc')->where('status', 1)->get();
     }
 
 }

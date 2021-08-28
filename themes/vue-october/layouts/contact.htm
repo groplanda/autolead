@@ -60,7 +60,11 @@ default = 0
               </div>
             </div>
           </div>
-          <img src="{{ 'assets/images/map/map-placeholder.jpg'|theme }}" alt="карта" class="page__map-image" />
+          <picture class="page__map-image">
+            <source srcset="{{ 'assets/images/map/map-placeholder.webp'|theme }}" type="image/webp" />
+            <source srcset="{{ 'assets/images/map/map-placeholder.jpg'|theme }}" type="image/jpeg" />
+            <img src="{{ 'assets/images/map/map-placeholder.jpg'|theme }}" alt="Волжский, ул. Пушкина, 101б">
+          </picture>
         </div>
       </div>
     </main>
