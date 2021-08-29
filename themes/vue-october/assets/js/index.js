@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (videoVue) {
     new Vue({
       el: videoVue,
-      components: { App: Video }
+      components: { 'video-component': Video }
     })
   }
 
