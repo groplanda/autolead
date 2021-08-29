@@ -17,8 +17,8 @@ formType = "testimonials"
 galleryName = 2
 galleryType = "home"
 ==
-<!DOCTYPE html lang="ru">
-<html>
+<!DOCTYPE html>
+<html lang="ru">
   <head>
     {% partial "meta.htm" %}
   </head>
@@ -283,9 +283,6 @@ galleryType = "home"
         </div>
       </div>
     </div>
-    <!-- Scripts -->
-    <script src="{{ 'assets/dist/index.js'|theme }}"></script>
-    {% framework extras %}
-    {% scripts %}
+    {% partial "scripts.htm" %}
   </body>
 </html>

@@ -6,8 +6,8 @@ default = 0
 
 [faq]
 ==
-<!DOCTYPE html lang="ru">
-<html>
+<!DOCTYPE html>
+<html lang="ru">
   <head>
     {% partial "meta.htm" %}
   </head>
@@ -48,9 +48,6 @@ default = 0
       </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ 'assets/dist/index.js'|theme }}"></script>
-    {% framework extras %}
-    {% scripts %}
+    {% partial "scripts.htm" %}
   </body>
 </html>

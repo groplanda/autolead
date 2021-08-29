@@ -1,7 +1,7 @@
 description = "404 page"
 ==
-<!DOCTYPE html lang="ru">
-<html>
+<!DOCTYPE html>
+<html lang="ru">
   <head>
     {% partial "meta.htm" %}
   </head>
@@ -41,9 +41,6 @@ description = "404 page"
       </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ 'assets/dist/index.js'|theme }}"></script>
-    {% framework extras %}
-    {% scripts %}
+    {% partial "scripts.htm" %}
   </body>
 </html>
