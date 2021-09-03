@@ -2,7 +2,7 @@
   section.video
     ._container.container
       ._content
-        h3._title Посмотрите видео работы нашего автосервиса!
+        ._title Посмотрите видео работы нашего автосервиса!
         button._button(type="button" @click="openModal")
           icon(name="play" component="video")._button-ico
       Popup(className="popup__dialog_video" v-if="popup" @close="closeModal" :fullscreen="fullscreen" :orientation="currentVideo.orientation")

@@ -66,18 +66,24 @@
   }
 
   &__title {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 42px;
     color: #FFFFFF;
 
     @media(max-width: 767px) {
       font-size: 30px;
+      line-height: 36px;
     }
 
     @media(max-width: 575px) {
       font-size: 24px;
+      line-height: 26px;
     }
 
     @media(max-width: 359px) {
       font-size: 18px;
+      line-height: 21px;
     }
   }
 
@@ -132,6 +138,19 @@
   &__item-title {
     color: $red-color;
     margin-bottom: 3px;
+    font-size: 19px;
+    line-height: 26px;
+    font-weight: 900;
+
+    @media (max-width: 1199px) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 15px;
+      line-height: 21px;
+    }
   }
 
   &__item-description {

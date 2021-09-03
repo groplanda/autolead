@@ -29,6 +29,27 @@
     margin: -40px 0 100px;
   }
 
+  &__title {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 42px;
+
+    @media (max-width: 1199px) {
+      font-size: 32px;
+      line-height: 38px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 30px;
+      line-height: 36px;
+    }
+
+    @media (max-width: 680px) {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
   &__header {
     margin-bottom: 36px;
   }

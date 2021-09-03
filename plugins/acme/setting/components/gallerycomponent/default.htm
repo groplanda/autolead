@@ -10,7 +10,7 @@
         </svg>
         {{ gallery.title|raw }}
       </div>
-      <h3 class="gallery__title title"> {{ gallery.description }}</h3>
+      <div class="gallery__title title"> {{ gallery.description }}</div>
       <div class="gallery__row" data-js-action="gallery">
         {% for image in gallery.images %}
         {% set full = image.thumb(1200, false) %}

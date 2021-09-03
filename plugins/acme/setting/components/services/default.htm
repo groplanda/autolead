@@ -10,13 +10,13 @@
         </svg>
         Наши услуги
       </div>
-      <h3 class="services__title title">Ремонт и обслуживание авто любых моделей</h3>
+      <div class="services__title title">Ремонт и обслуживание авто любых моделей</div>
     </div>
     <div class="services__row">
       {% for service in services %}
       <div class="services__item">
         <img src="{{ service.file.path }}" alt="{{ service.name }}" class="services__item-ico" />
-        <h6 class="services__item-title">{{ service.name }}</h6>
+        <div class="services__item-title">{{ service.name }}</div>
         <p class="services__item-descr">{{ service.description }}</p>
       </div>
       {% endfor %}
@@ -27,7 +27,7 @@
         <div class="swiper-slide">
           <div class="services__item">
             <img src="{{ service.file.path }}" alt="{{ service.name }}" class="services__item-ico" />
-            <h6 class="services__item-title">{{ service.name }}</h6>
+            <div class="services__item-title">{{ service.name }}</div>
             <p class="services__item-descr">{{ service.description }}</p>
           </div>
         </div>
