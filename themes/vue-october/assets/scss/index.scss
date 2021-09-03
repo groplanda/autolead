@@ -175,6 +175,13 @@ p {
     line-height: 24px;
     letter-spacing: 0.15px;
 }
+a {
+  color: $red-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
 img {
     max-width: 100%;
     height: auto;
