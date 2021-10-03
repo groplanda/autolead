@@ -138,6 +138,7 @@
     }
 
     &:hover, &:focus, &:active {
+      text-decoration: none;
       color: $dark-color;
     }
   }
@@ -182,11 +183,15 @@
     line-height: 20px;
     letter-spacing: 0.15px;
 
+    &:hover {
+      text-decoration: none;
+    }
+
     &_link {
       text-decoration: none;
       &:hover, &:focus, &:active {
-      color: $dark-color;
-    }
+        color: $dark-color;
+      }
     }
   }
 

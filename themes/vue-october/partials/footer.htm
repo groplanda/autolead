@@ -1,11 +1,16 @@
 <footer class="footer">
   <div class="footer__container container">
-    <div class="footer__top">
+    <div class="footer__top" itemscope itemtype="http://schema.org/Organization">
       <div class="footer__content">
-        <img src="{{ 'assets/images/header/logo.png'|theme }}" alt="Автолидер и партнеры" class="footer__logo">
-        <p class="footer__description">Мы занимаемся ремонтом и обслуживанием отечественных и иностранных автомобилей.</p>
+        <img itemprop="logo image" alt="Логотип Авто-Лидер и Партнёры" title="Авто-Лидер и Партнёры" src="{{ 'assets/images/header/logo.png'|theme }}" class="footer__logo">
+        <span itemprop="name" hidden>Авто-Лидер и Партнёры</span>
+        <link itemprop="url" href="https://автолидер-партнеры.рф">
+        <meta itemprop="telephone" content="8 (937) 096-15-25">
+        <p class="footer__description" itemprop="description">
+          Автосервис, ремонт, обслуживание автомобилей, шиномонтаж.
+        </p>
         <div class="footer__social">
-          <a href="https://www.instagram.com/avtolideripartniory/" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+          <a href="https://www.instagram.com/avtolideripartniory/" title="Вы переходите на нашу страницу сообщества в социальной сети Instagram" target="_blank" rel="noopener noreferrer" class="footer__social-link">
             <svg viewBox="0 0 24 24" class="footer__social-ico icon-instagram">
               <path d="M16.0325 3H7.96724C5.22831 3 3 5.22841 3 7.96735V16.0327C3 18.7717 5.22831 21 7.96724 21H16.0325C18.7717 21 21 18.7716 21 16.0327V7.96735C21.0001 5.22841 18.7717 3 16.0325 3ZM19.4031 16.0327C19.4031 17.8911 17.8911 19.403 16.0327 19.403H7.96724C6.10892 19.4031 4.59705 17.8911 4.59705 16.0327V7.96735C4.59705 6.10903 6.10892 4.59705 7.96724 4.59705H16.0325C17.891 4.59705 19.403 6.10903 19.403 7.96735L19.4031 16.0327Z" fill="currentColor"></path>
               <path d="M12 7.36206C9.44245 7.36206 7.36182 9.44269 7.36182 12.0002C7.36182 14.5576 9.44245 16.6381 12 16.6381C14.5575 16.6381 16.6381 14.5576 16.6381 12.0002C16.6381 9.44269 14.5575 7.36206 12 7.36206ZM12 15.041C10.3232 15.041 8.95886 13.6769 8.95886 12.0001C8.95886 10.3232 10.3231 8.959 12 8.959C13.6769 8.959 15.0411 10.3232 15.0411 12.0001C15.0411 13.6769 13.6768 15.041 12 15.041Z" fill="currentColor"></path>
@@ -30,20 +35,24 @@
           <svg viewBox="0 0 14 20" class="footer__contact-ico icon-place ">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.13 0 0 3.13 0 7C0 12.25 7 20 7 20C7 20 14 12.25 14 7C14 3.13 10.87 0 7 0ZM2 7C2 4.24 4.24 2 7 2C9.76 2 12 4.24 12 7C12 9.88 9.12 14.19 7 16.88C4.92 14.21 2 9.85 2 7ZM4.5 7C4.5 5.61929 5.61929 4.5 7 4.5C7.89316 4.5 8.71848 4.9765 9.16506 5.75C9.61165 6.5235 9.61165 7.4765 9.16506 8.25C8.71848 9.0235 7.89316 9.5 7 9.5C5.61929 9.5 4.5 8.38071 4.5 7Z" fill="currentColor"></path>
           </svg>
-          <span class="footer__contact-text">г. Волжский ул. Пушкина, 101Б</span>
+          <p class="footer__contact-text" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            г. <span itemprop="addressLocality">Волжский</span>
+            <span itemprop="streetAddress">ул. Пушкина, 101Б</span>
+            <span itemprop="postalCode" hidden>404118</span>
+          </p>
         </div>
         <div class="footer__contact-item">
           <svg viewBox="0 0 16 16" class="footer__contact-ico icon-mobile_phone ">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M4.66659 0.666504L11.3333 0.673171C12.0666 0.673171 12.6666 1.2665 12.6666 1.99984V13.9998C12.6666 14.7332 12.0666 15.3332 11.3333 15.3332H4.66659C3.93325 15.3332 3.33325 14.7332 3.33325 13.9998V1.99984C3.33325 1.2665 3.93325 0.666504 4.66659 0.666504ZM4.66659 12.6665H11.3333V3.33317H4.66659V12.6665Z" fill="currentColor"></path>
           </svg>
-          <a href="tel:+7(937)096-15-25" class="footer__contact-text footer__contact-text--link">+7(937)096-15-25</a>
-          <a href="tel:+7(937)555-33-25" class="footer__contact-text footer__contact-text--link">+7(937)555-33-25</a>
+          <a itemprop="telephone" href="tel:+7(937)096-15-25" class="footer__contact-text footer__contact-text--link">+7(937)096-15-25</a>
+          <a itemprop="telephone" href="tel:+7(937)555-33-25" class="footer__contact-text footer__contact-text--link">+7(937)555-33-25</a>
         </div>
         <div class="footer__contact-item">
           <svg viewBox="0 0 16 16" class="footer__contact-ico icon-email ">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M14.6666 3.99984C14.6666 3.2665 14.0666 2.6665 13.3333 2.6665H2.66659C1.93325 2.6665 1.33325 3.2665 1.33325 3.99984V11.9998C1.33325 12.7332 1.93325 13.3332 2.66659 13.3332H13.3333C14.0666 13.3332 14.6666 12.7332 14.6666 11.9998V3.99984ZM13.3333 3.99984L7.99992 7.33317L2.66659 3.99984H13.3333ZM7.99992 8.6665L2.66659 5.33317V11.9998H13.3333V5.33317L7.99992 8.6665Z" fill="currentColor"></path>
           </svg>
-          <a href="mailto:dir@автолидер-партнеры.рф" class="footer__contact-text footer__contact-text--link">dir@автолидер-партнеры.рф</a>
+          <a href="mailto:dir@xn----7sbbgkgct0azerldctk9n.xn--p1ai" itemprop="email" class="footer__contact-text footer__contact-text--link">dir@автолидер-партнеры.рф</a>
         </div>
         <div class="footer__contact-item">
           <svg viewBox="0 0 16 16" class="footer__contact-ico icon-timer ">

@@ -110,6 +110,10 @@
     transition: color 0.2s ease;
     margin-bottom: 20px;
 
+    &:hover {
+      text-decoration: none;
+    }
+
     &:hover,
     &:focus,
     &:active,
@@ -174,6 +178,10 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
     }
   }
 

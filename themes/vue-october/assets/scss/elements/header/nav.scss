@@ -56,6 +56,7 @@
 
     &:hover, &:focus, &:active, &--active {
       color: $red-color;
+      text-decoration: none;
 
       #{$root} {
         &__ico {

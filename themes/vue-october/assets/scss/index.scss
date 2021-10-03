@@ -301,6 +301,7 @@ textarea {
 
     &:hover,
     &:focus {
+        text-decoration: none;
         &::before {
             opacity: 0.2;
         }
