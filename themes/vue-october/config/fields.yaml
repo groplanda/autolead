@@ -1,0 +1,226 @@
+tabs:
+  defaultTab: Контакты
+  lazy:
+      - Контакты
+      - Общие
+      - Первый экран
+      - Почему мы?
+      - Видео
+      - Наши цифры
+      - Подвал
+  paneCssClass:
+      0: first-tab
+      1: second-tab
+      2: third-tab
+      3: fourth-tab
+      4: five-tab
+  icons:
+      Контакты: icon-phone
+      Общие: icon-cogs
+      Первый экран: icon-pencil
+      Почему мы?: icon-paw
+      Видео: icon-play
+      Наши цифры: icon-percent
+      Подвал: icon-tag
+  fields:
+      phones:
+          label: Телефон
+          span: storm
+          cssClass: col-md-6
+          tab: Контакты
+          type: repeater
+          prompt: Добавить
+          form:
+            fields:
+              val:
+                label: Номер для ссылки
+                type: text
+                placeholder: '+79147580525'
+              text:
+                label: Номер в произв. форме
+                type: text
+                placeholder: '8(914)758-05-25'
+      open:
+          label: График работы
+          span: storm
+          cssClass: col-md-6
+          tab: Контакты
+          type: text
+          placeholder: 'Ежедневно'
+
+      site_email:
+          type: email
+          label: E-mail
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: 'example@mail.ru'
+      post_code:
+          type: text
+          label: Почтовый индекс
+          span: storm
+          cssClass: col-md-2
+          tab: Контакты
+          placeholder: '404100'
+      city:
+          type: text
+          label: Город
+          span: storm
+          cssClass: col-md-2
+          tab: Контакты
+          placeholder: 'г. Москва'
+      address:
+          type: text
+          label: Улица
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: 'Полный адрес'
+      whatsapp:
+          type: text
+          label: WhatsApp
+          span: storm
+          cssClass: col-md-4
+          tab: Контакты
+          placeholder: '79147580525'
+
+      instagram:
+          type: text
+          label: Instagram
+          span: storm
+          cssClass: col-md-6
+          tab: Контакты
+          placeholder: https://instagram.com
+
+      site_logo:
+        label: Логотип
+        type: mediafinder
+        mode: image
+        imageWidth: 150
+        span: storm
+        cssClass: col-md-6
+        tab: Общие
+
+      site_favicon:
+        label: Фавикон
+        type: mediafinder
+        mode: image
+        imageWidth: 150
+        span: storm
+        cssClass: col-md-4
+        tab: Общие
+
+      site_metrika:
+        label: Коды метрик
+        type: codeeditor
+        size: huge
+        language: html
+        span: storm
+        cssClass: col-md-12
+        tab: Общие
+
+      intro_title:
+        type: text
+        label: Заголовок сайта
+        span: storm
+        cssClass: col-md-12
+        tab: Первый экран
+
+      intro_bg:
+        label: Фоновая картинка
+        type: mediafinder
+        mode: image
+        imageWidth: 200
+        span: storm
+        cssClass: col-md-12
+        tab: Первый экран
+
+      about_title:
+        type: text
+        label: Заголовок
+        span: storm
+        cssClass: col-md-12
+        tab: Почему мы?
+
+      about_description:
+        label: Описание
+        type: richeditor
+        size: huge
+        span: storm
+        cssClass: col-md-12
+        tab: Почему мы?
+
+      about_image:
+        label: Картинка
+        type: mediafinder
+        mode: image
+        imageWidth: 200
+        span: storm
+        cssClass: col-md-4
+        tab: Почему мы?
+
+      video_title:
+        type: text
+        label: Заголовок
+        span: storm
+        cssClass: col-md-12
+        tab: Видео
+
+      video_image:
+        label: Фон видео
+        type: mediafinder
+        mode: image
+        imageWidth: 200
+        span: storm
+        cssClass: col-md-6
+        tab: Видео
+
+      stats_title:
+        type: text
+        label: Заголовок
+        span: storm
+        cssClass: col-md-8
+        tab: Наши цифры
+
+      stats_image:
+        label: Фото справа
+        type: mediafinder
+        mode: image
+        imageWidth: 150
+        span: storm
+        cssClass: col-md-4
+        tab: Наши цифры
+
+      stats:
+          label: Цифры
+          span: storm
+          cssClass: col-md-12
+          tab: Наши цифры
+          type: repeater
+          prompt: Добавить
+          form:
+            fields:
+              ico:
+                label: Иконка
+                type: codeeditor
+                language: html
+              name:
+                label: Цифра
+                type: text
+              descr:
+                label: Описание
+                type: text
+
+      footer_description:
+        label: Описание внизу
+        type: textarea
+        span: storm
+        cssClass: col-md-12
+        tab: Подвал
+
+      footer_logo:
+        label: Текст у логотипа
+        type: textarea
+        span: storm
+        cssClass: col-md-12
+        tab: Подвал

@@ -4,7 +4,10 @@
       <!-- header top start -->
       <div class="header__top">
         <a href="/" class="header__logo">
-          <img src="{{ 'assets/images/header/logo.png'|theme }}" alt="Автолидер и партнеры" class="header__img"/>
+            <picture>
+                <source srcset="{{this.theme.site_logo|media}}" >
+                <img src="{{this.theme.site_logo|media}}" alt="Автолидер и партнеры" class="header__img" />
+            </picture>
           <span class="header__name">Автолидер <br>и партнеры</span>
         </a>
         <div class="header__contact">
@@ -13,15 +16,16 @@
               <path fill-rule="evenodd" clip-rule="evenodd" d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM11 7H12.5V12.25L17 14.92L16.25 16.15L11 13V7Z" fill="#C40B0B"></path>
             </svg>
             РЕЖИМ РАБОТЫ
-            <span class="header__contact-text">09:00–00:00</span>
+            <span class="header__contact-text">{{this.theme.open}}</span>
           </div>
           <div class="header__contact-item header__contact-item--phone">
             <svg viewBox="0 0 24 24" class="header__contact-ico icon-call">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.61 14.99 15.86 14.89 16.12 14.89C16.22 14.89 16.33 14.9 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3ZM6.54 5C6.6 5.89 6.75 6.76 6.99 7.59L5.79 8.79C5.38 7.59 5.12 6.32 5.03 5H6.54ZM16.4 17.02C17.25 17.26 18.12 17.41 19 17.47V18.96C17.68 18.87 16.41 18.61 15.2 18.21L16.4 17.02Z" fill="currentColor"></path>
             </svg>
             ЗВОНИТЕ
-            <a href="tel:+7(937)096-15-25" class="header__contact-text">+7(937)096-15-25</a>
-            <a href="tel:+7(937)555-33-25" class="header__contact-text">+7(937)555-33-25</a>
+            {% for phone in this.theme.phones %}
+                <a href="tel:{{phone.val}}" class="header__contact-text">{{phone.text}}</a>
+            {% endfor %}
           </div>
           <button type="button" class="button button-arrow header__button" data-js-action="open-popup" data-modal-for="form">
             Оставить заявку
@@ -39,7 +43,7 @@
           </svg>
         </button>
         {% partial "nav.htm" %}
-        <a href="whatsapp://send?phone=79370961525?text=Здравствуйте%2C+у+меня+есть+вопрос" class="nav__messenger">
+        <a href="whatsapp://send?phone={{this.theme.whatsapp}}?text=Здравствуйте%2C+у+меня+есть+вопрос" class="nav__messenger">
           <svg class="nav__messenger-ico" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.0037 0H14.9963C6.72563 0 0 6.7275 0 15C0 18.2812 1.0575 21.3225 2.85562 23.7919L0.98625 29.3644L6.75187 27.5213C9.12375 29.0925 11.9531 30 15.0037 30C23.2744 30 30 23.2706 30 15C30 6.72938 23.2744 0 15.0037 0ZM23.7319 21.1819C23.37 22.2038 21.9338 23.0512 20.7881 23.2987C20.0044 23.4656 18.9806 23.5988 15.5344 22.17C11.1262 20.3438 8.2875 15.8644 8.06625 15.5737C7.85437 15.2831 6.285 13.2019 6.285 11.0494C6.285 8.89688 7.37813 7.84875 7.81875 7.39875C8.18062 7.02938 8.77875 6.86062 9.3525 6.86062C9.53813 6.86062 9.705 6.87 9.855 6.8775C10.2956 6.89625 10.5169 6.9225 10.8075 7.61813C11.1694 8.49 12.0506 10.6425 12.1556 10.8638C12.2625 11.085 12.3694 11.385 12.2194 11.6756C12.0788 11.9756 11.955 12.1087 11.7337 12.3637C11.5125 12.6187 11.3025 12.8138 11.0812 13.0875C10.8787 13.3256 10.65 13.5806 10.905 14.0213C11.16 14.4525 12.0413 15.8906 13.3387 17.0456C15.0131 18.5362 16.3706 19.0125 16.8562 19.215C17.2181 19.365 17.6494 19.3294 17.9137 19.0481C18.2494 18.6863 18.6637 18.0863 19.0856 17.4956C19.3856 17.0719 19.7644 17.0194 20.1619 17.1694C20.5669 17.31 22.71 18.3694 23.1506 18.5887C23.5912 18.81 23.8819 18.915 23.9887 19.1006C24.0938 19.2863 24.0938 20.1581 23.7319 21.1819Z" fill="currentColor"/>
           </svg>
@@ -62,20 +66,21 @@
                   <svg viewBox="0 0 24 24" class="mobile-nav__contact-ico icon-call ">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.61 14.99 15.86 14.89 16.12 14.89C16.22 14.89 16.33 14.9 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3ZM6.54 5C6.6 5.89 6.75 6.76 6.99 7.59L5.79 8.79C5.38 7.59 5.12 6.32 5.03 5H6.54ZM16.4 17.02C17.25 17.26 18.12 17.41 19 17.47V18.96C17.68 18.87 16.41 18.61 15.2 18.21L16.4 17.02Z" fill="currentColor"></path>
                   </svg>
-                  <a href="tel:+7(937)096-15-25" class="mobile-nav__phone">+7(937)096-15-25</a>
-                  <a href="tel:+7(937)555-33-25" class="mobile-nav__phone">+7(937)555-33-25</a>
+                  {% for phone in this.theme.phones %}
+                    <a href="tel:{{phone.val}}" class="mobile-nav__phone">{{phone.text}}</a>
+                  {% endfor %}
                 </div>
                 <div class="mobile-nav__item">
                   <svg viewBox="0 0 24 24" class="mobile-nav__contact-ico icon-time ">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM11 7H12.5V12.25L17 14.92L16.25 16.15L11 13V7Z" fill="#C40B0B"></path>
                   </svg>
-                  <div class="mobile-nav__text">09:00–00:00</div>
+                  <div class="mobile-nav__text">{{this.theme.open}}</div>
                 </div>
                 <div class="mobile-nav__item">
                   <svg viewBox="0 0 14 20" class="mobile-nav__contact-ico icon-place ">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.13 0 0 3.13 0 7C0 12.25 7 20 7 20C7 20 14 12.25 14 7C14 3.13 10.87 0 7 0ZM2 7C2 4.24 4.24 2 7 2C9.76 2 12 4.24 12 7C12 9.88 9.12 14.19 7 16.88C4.92 14.21 2 9.85 2 7ZM4.5 7C4.5 5.61929 5.61929 4.5 7 4.5C7.89316 4.5 8.71848 4.9765 9.16506 5.75C9.61165 6.5235 9.61165 7.4765 9.16506 8.25C8.71848 9.0235 7.89316 9.5 7 9.5C5.61929 9.5 4.5 8.38071 4.5 7Z" fill="currentColor"></path>
                   </svg>
-                  <div class="mobile-nav__text">г. Волжский ул. Пушкина, 101Б</div>
+                  <div class="mobile-nav__text">{{this.theme.city}}, {{this.theme.address}}</div>
                 </div>
               </div>
             </div>
